@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Growing Deep and Strong® — Christian Discipleship</title>
+
+    <!-- ============================================================
+         FONTS — EB Garamond (headings) + Inter (body)
+         When converting to ACF/WP, enqueue these in functions.php
+         ============================================================ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- ============================================================
+         SWIPER.JS — hero slider (CDN, no jQuery)
+         ACF: when converting, enqueue Swiper from CDN or local package
+         ============================================================ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- ============================================================
+         AOS — Animate On Scroll (CDN)
+         ============================================================ -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+</head>
+<body>
+
+    <!-- ============================================================
+         SITE HEADER — Two-row: brand strip + nav strip
+         ACF: convertible to a "Site Header" block
+         ============================================================ -->
+    <header class="site-header">
+
+        <!-- Top brand strip ---------------------------------------- -->
+        <div class="brand-strip">
+            <div class="brand-strip__inner">
+                <a href="#" class="brand">
+                    <span class="brand__mark" aria-hidden="true">G</span>
+                    <span class="brand__wordmark">
+                        <span class="brand__name">Growing Deep <em>and</em> Strong<sup>®</sup></span>
+                        <span class="brand__tag">Christian Discipleship</span>
+                    </span>
+                </a>
+
+                <div class="brand-strip__actions">
+                    <a href="mailto:info@growingdeepandstrong.com" class="brand-strip__contact">
+                        info@growingdeepandstrong.com
+                    </a>
+                    <a href="#" class="btn btn--primary btn--sm brand-strip__cta">Free Resources</a>
+                </div>
+
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Primary nav strip -------------------------------------- -->
+        <div class="nav-strip">
+            <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+                <ul class="primary-nav__list">
+                    <li><a href="#">Home</a></li>
+
+                    <!-- New Christian Training — dropdown -->
+                    <li class="has-dropdown">
+                        <a href="#" aria-haspopup="true" aria-expanded="false">
+                            New Christian Training
+                            <span class="caret" aria-hidden="true"></span>
+                        </a>
+                        <ul class="dropdown" role="menu">
+                            <li role="none"><a role="menuitem" href="#">Why Moves of God Succeeded and Faded</a></li>
+                            <li role="none"><a role="menuitem" href="#">How to Open a New Christian Training Center</a></li>
+                            <li role="none"><a role="menuitem" href="#">Curriculum</a></li>
+                            <li role="none"><a role="menuitem" href="#">Teacher Training Tutorials</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Be A Coach / Coaching — dropdown -->
+                    <li class="has-dropdown">
+                        <a href="#" aria-haspopup="true" aria-expanded="false">
+                            Be A Coach / Coaching
+                            <span class="caret" aria-hidden="true"></span>
+                        </a>
+                        <ul class="dropdown" role="menu">
+                            <li role="none"><a role="menuitem" href="#">Be A Coach Online Training</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#">Be A Disciple / Discipleship</a></li>
+
+                    <!-- Shop — dropdown -->
+                    <li class="has-dropdown">
+                        <a href="#" aria-haspopup="true" aria-expanded="false">
+                            Shop
+                            <span class="caret" aria-hidden="true"></span>
+                        </a>
+                        <ul class="dropdown" role="menu">
+                            <li role="none"><a role="menuitem" href="#">Return &amp; Refund Policy</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Testimonies — dropdown -->
+                    <li class="has-dropdown">
+                        <a href="#" aria-haspopup="true" aria-expanded="false">
+                            Testimonies
+                            <span class="caret" aria-hidden="true"></span>
+                        </a>
+                        <ul class="dropdown" role="menu">
+                            <li role="none"><a role="menuitem" href="#">Endorsement</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- About Us — dropdown -->
+                    <li class="has-dropdown">
+                        <a href="#" aria-haspopup="true" aria-expanded="false">
+                            About Us
+                            <span class="caret" aria-hidden="true"></span>
+                        </a>
+                        <ul class="dropdown" role="menu">
+                            <li role="none"><a role="menuitem" href="#">Our Objectives</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </header>
+
+    <!-- ============================================================
+         HERO SLIDER — Swiper.js, full-viewport, 3 slides
+         ACF: Repeater field "hero_slides" with: image, heading, subtitle
+         Each .swiper-slide receives a background image/gradient,
+         a heading (EB Garamond, ALL CAPS) and a subtitle.
+         ============================================================ -->
+    <section class="hero-slider" aria-label="Hero slideshow">
+        <div class="swiper hero-swiper">
+            <div class="swiper-wrapper">
+
+                <!-- Slide 1 — Brand hero (Jer 17:7-8) -->
+                <div
+                    class="swiper-slide hero-slide"
+                    style="background-image: linear-gradient(180deg, rgba(18,38,56,0.30) 0%, rgba(18,38,56,0.65) 100%), url('images/hero-growing-deep-and-strong.png');"
+                >
+                    <div class="hero-slide__inner">
+                        <p class="hero-slide__eyebrow">Jeremiah 17:7–8</p>
+                        <h1 class="hero-slide__title">Growing Deep <span class="amp">and</span> Strong<sup>®</sup></h1>
+                        <p class="hero-slide__sub">
+                            An intentional Christian discipleship and servant leadership pathway for new and maturing believers.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Slide 2 — Mandate -->
+                <div
+                    class="swiper-slide hero-slide hero-slide--gradient-1"
+                >
+                    <div class="hero-slide__inner">
+                        <p class="hero-slide__eyebrow">Our Mandate</p>
+                        <h2 class="hero-slide__title">Disciple, Strengthen <span class="amp">and</span> Send</h2>
+                        <p class="hero-slide__sub">
+                            To be a catalyst and facilitator developing people to become leaders and disciples of others —
+                            creating an environment that raises leaders who transform nations.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Slide 3 — Servant Leadership pathway -->
+                <div
+                    class="swiper-slide hero-slide hero-slide--gradient-2"
+                >
+                    <div class="hero-slide__inner">
+                        <p class="hero-slide__eyebrow">A Proven Pathway</p>
+                        <h2 class="hero-slide__title">From New Believer to Servant Leader</h2>
+                        <p class="hero-slide__sub">
+                            A 19-week or 37-week off-the-shelf mentoring program designed to grow a new Christian into a mature
+                            servant leader — in 12 months or less.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Pagination -->
+            <div class="swiper-pagination hero-swiper__pagination"></div>
+
+            <!-- Navigation arrows -->
+            <button class="swiper-button-prev hero-swiper__nav" aria-label="Previous slide"></button>
+            <button class="swiper-button-next hero-swiper__nav" aria-label="Next slide"></button>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         MANDATE BAND — Mission statement, sits beneath hero
+         ACF: "Mandate Band" block (eyebrow + heading + body)
+         ============================================================ -->
+    <section class="mandate">
+        <div class="mandate__inner">
+            <p class="mandate__eyebrow">Our Mandate</p>
+            <h1 class="mandate__title">Growing Deep <span class="amp">and</span> Strong<sup>®</sup></h1>
+            <p class="mandate__body">
+                Is to be a catalyst and facilitator in developing people to become leaders and disciples of others,
+                and create an environment that creates leaders who transform nations.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         BREADCRUMB
+         ============================================================ -->
+    <div class="breadcrumb" aria-label="Breadcrumb">
+        <div class="container">
+            <a href="#">Home</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">Christian Discipleship</span>
+        </div>
+    </div>
+
+    <main id="main">
+
+        <!-- ============================================================
+             SECTION — Intro / pathway overview
+             ACF: "Section Intro" block (eyebrow + h2 + lede + verse + CTAs)
+             ============================================================ -->
+        <section class="section section--intro" data-aos="fade-up">
+            <div class="container container--narrow">
+                <p class="eyebrow">An intentional pathway</p>
+                <h2 class="section-title">Growing Deep <span class="amp">and</span> Strong<sup>®</sup></h2>
+                <p class="section-sub">
+                    An intentional Christian discipleship and servant leadership pathway for new and maturing believers.
+                </p>
+                <p class="lede">
+                    The Growing Deep and Strong® Series helps you fast track and transform the life of a new
+                    Christian through a clear, biblical, and easy-to-use discipleship framework.
+                </p>
+
+                <blockquote class="verse">
+                    <p>“Go therefore and make disciples of all the nations, teaching them to observe all things that I have commanded you.”</p>
+                    <cite>— Matt 28:19–20</cite>
+                </blockquote>
+
+                <div class="cta-row">
+                    <a href="#" class="btn btn--primary">Review Our Curriculum</a>
+                    <a href="#" class="btn btn--ghost">Start a Training Hub</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             CHOOSE YOUR PATH — Central gateway: Disciple vs. Coach
+             ACF: "Path Gateway" block (title + sub + two-card repeater)
+             ============================================================ -->
+        <section class="section section--paths" data-aos="fade-up">
+            <div class="container">
+                <header class="paths__header">
+                    <p class="eyebrow eyebrow--gold">Begin Your Journey</p>
+                    <h2 class="section-title section-title--lg section-title--center">Choose Your Path</h2>
+                    <p class="section-sub section-sub--center">
+                        Whether you're stepping into faith for the first time or ready to lead others through it —
+                        there's a place for you on the pathway.
+                    </p>
+                </header>
+
+                <div class="path-cards">
+
+                    <!-- Card 1 — Disciple -->
+                    <article class="path-card path-card--disciple" data-aos="fade-up" data-aos-delay="100">
+                        <div class="path-card__top">
+                            <span class="path-card__num">01</span>
+                            <span class="path-card__kicker">For New &amp; Maturing Believers</span>
+                        </div>
+                        <h3 class="path-card__title">Be A Disciple</h3>
+                        <p class="path-card__lede">
+                            Take a brand new follower of Jesus Christ from the basics of faith to a grounded,
+                            sanctified life through our 19-week discipleship pathway.
+                        </p>
+                        <ul class="path-card__list">
+                            <li>Grounded in God's Word</li>
+                            <li>Free from old bondages</li>
+                            <li>Ready to disciple others</li>
+                        </ul>
+                        <a href="#" class="btn btn--primary btn--lg path-card__cta">Begin the Pathway</a>
+                    </article>
+
+                    <!-- Card 2 — Coach -->
+                    <article class="path-card path-card--coach" data-aos="fade-up" data-aos-delay="200">
+                        <div class="path-card__top">
+                            <span class="path-card__num">02</span>
+                            <span class="path-card__kicker">For Servant Leaders &amp; Mentors</span>
+                        </div>
+                        <h3 class="path-card__title">Be A Coach</h3>
+                        <p class="path-card__lede">
+                            Step into the role of a servant leader. Walk alongside new believers using the
+                            Coach's Manual — complete with verses, commentary, and weekly guidance.
+                        </p>
+                        <ul class="path-card__list">
+                            <li>Complete off-the-shelf curriculum</li>
+                            <li>Bible study + leadership training</li>
+                            <li>Build &amp; multiply servant leadership teams</li>
+                        </ul>
+                        <a href="#" class="btn btn--ghost btn--lg path-card__cta">Learn to Lead</a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             FEATURE BAND — "We Ship Worldwide" (integrated from sidebar)
+             ACF: "Feature Strip" block — image + heading + body
+             ============================================================ -->
+        <section class="section section--ship">
+            <div class="container">
+                <div class="ship">
+                    <!-- We Ship Worldwide branded image -->
+                    <div class="ship__visual" data-aos="fade-right" data-aos-duration="800">
+                        <img
+                            src="images/we-ship-worldwide.png"
+                            alt="We ship worldwide — globe with cargo ship and aircraft"
+                            class="ship__image"
+                        />
+                    </div>
+                    <div class="ship__copy" data-aos="fade-left" data-aos-duration="800" data-aos-delay="120">
+                        <p class="eyebrow eyebrow--gold">Global Reach</p>
+                        <h2 class="section-title section-title--lg">We Ship Worldwide</h2>
+                        <p class="lede">
+                            Our manuals, curriculum, and resources are dispatched to disciples,
+                            coaches, and training hubs across every continent.
+                        </p>
+                        <a href="#" class="btn btn--ghost">Visit the Shop</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             TESTIMONIAL — Tammy Broadhead
+             ACF: "Testimonial" block (quote + author + heading)
+             ============================================================ -->
+        <section class="section section--quote" data-aos="fade-up">
+            <div class="container container--narrow">
+                <h2 class="section-title section-title--center">The Coach's Manual Made It Easy to Coach Others</h2>
+                <figure class="pull-quote">
+                    <blockquote>
+                        <p>
+                            “It was a learning curve, interesting to see the dynamics at work. We had a small group of people
+                            we were responsible for. We each had 3–5 people to coach. The manuals are fantastic. They outlined
+                            and gave direction on what to speak about, what questions to bring up and discuss, and gave us guidelines.”
+                        </p>
+                    </blockquote>
+                    <figcaption>— Tammy Broadhead</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             7 MOUNTAIN MANDATE — body + list of mountains
+             ACF: "Body + Mountain List" block
+             ============================================================ -->
+        <section class="section section--mountains">
+            <div class="container">
+                <div class="mountains">
+                    <div class="mountains__copy" data-aos="fade-right" data-aos-duration="800">
+                        <p class="eyebrow">Strategic Vision</p>
+                        <h2 class="section-title">7 Mountain Mandate</h2>
+                        <p>
+                            Our 7 Mountain Mandate is to equip the Ecclesia in the Mountain of Religion with a Blueprint
+                            for Success so they can transfer, disciple, strengthen, and send biblically grounded societal
+                            reformers back into their mountain of influence.
+                        </p>
+                        <p>
+                            Their lifestyle is influenced by a biblical worldview, and the Bible is their standard and code
+                            of conduct for every decision they make in business, workplace, schools, universities, and personal life.
+                        </p>
+                        <p>
+                            It has been designed to help you take a brand new follower of Jesus Christ to a servant leader
+                            discipling others in their mountain of influence in 12 months or less.
+                        </p>
+                    </div>
+
+                    <ul class="mountain-grid" data-aos="fade-left" data-aos-duration="800" data-aos-delay="120">
+                        <li><span class="mountain-grid__num">01</span><span>Religion</span></li>
+                        <li><span class="mountain-grid__num">02</span><span>Family</span></li>
+                        <li><span class="mountain-grid__num">03</span><span>Education</span></li>
+                        <li><span class="mountain-grid__num">04</span><span>Government</span></li>
+                        <li><span class="mountain-grid__num">05</span><span>Media</span></li>
+                        <li><span class="mountain-grid__num">06</span><span>Business</span></li>
+                        <li><span class="mountain-grid__num">07</span><span>Arts &amp; Entertainment</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             IT'S ALL DONE FOR YOU
+             ACF: "Body Section" block (heading + paragraphs)
+             ============================================================ -->
+        <section class="section section--done" data-aos="fade-up">
+            <div class="container container--narrow">
+                <p class="eyebrow">Ready to use, off the shelf</p>
+                <h2 class="section-title">It's All Done for You</h2>
+                <div class="prose">
+                    <p>
+                        If you have a burning desire to disciple others, this is for you. We have made it easy to use and simple to teach.
+                    </p>
+                    <p>
+                        We have given you the Bible verses, commentaries, and clear instructions in the Coach's Manual that you need
+                        to disciple a new Christian.
+                    </p>
+                    <p>
+                        It is biblically sound and designed to empower ordinary Christians who have a desire to teach new believers how
+                        to live a transformed life according to God's Word.
+                    </p>
+                    <p>
+                        We collectively spent over <strong>35,000 hours</strong> to give you a complete, off-the-shelf Christian Bible study
+                        discipleship and leadership course that you can purchase and implement.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             TESTIMONIAL — Lilly Bragge (two paragraphs + book image)
+             ACF: "Testimonial with Resource" block
+             ============================================================ -->
+        <section class="section section--journey">
+            <div class="container">
+                <div class="journey">
+                    <div class="journey__copy" data-aos="fade-right" data-aos-duration="800">
+                        <p class="eyebrow">Testimony</p>
+                        <h2 class="section-title">It Fast Tracked My Christian Journey to Righteousness</h2>
+                        <blockquote class="pull-quote pull-quote--plain">
+                            <p>
+                                “Aside from a short spell at Sunday School as a child, I had no religious upbringing or teachings whatsoever.
+                                Despite a university education, my understanding of the Bible was as Mickey Mouse as it gets.”
+                            </p>
+                            <p>
+                                “Joining a Bible Study group with other new believers and studying under the Growing Deep and Strong Series
+                                was a wonderful introduction to Scripture. What was once unintelligible became clear and powerful.”
+                            </p>
+                        </blockquote>
+                        <p class="byline">— Lilly Bragge</p>
+                    </div>
+
+                    <aside class="journey__resource" data-aos="fade-left" data-aos-duration="800" data-aos-delay="180">
+                        <!-- Book cover — GDAS Series -->
+                        <figure class="book-figure">
+                            <img
+                                src="images/book-gdas-series.png"
+                                alt="Growing Deep and Strong Series — spiral-bound manual cover"
+                                class="book-figure__image"
+                            />
+                            <figcaption class="resource-label">Free Resource</figcaption>
+                        </figure>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             BLUEPRINT — Sidebar widget integrated as a full feature
+             ACF: "Resource Feature" block — book + body + bullets + CTAs
+             ============================================================ -->
+        <section class="section section--blueprint">
+            <div class="container">
+                <div class="blueprint">
+                    <div class="blueprint__media" data-aos="fade-right" data-aos-duration="800">
+                        <!-- Book cover — Strategic Blueprint -->
+                        <figure class="book-figure book-figure--lg">
+                            <img
+                                src="images/book-strategic-blueprint.png"
+                                alt="New Christian Training Centre Strategic Blueprint — spiral-bound book cover"
+                                class="book-figure__image"
+                            />
+                        </figure>
+                    </div>
+
+                    <div class="blueprint__copy" data-aos="fade-left" data-aos-duration="800" data-aos-delay="150">
+                        <p class="eyebrow eyebrow--gold">Free Download</p>
+                        <h2 class="section-title">New Christian Training Centre Strategic Blueprint</h2>
+                        <p class="section-sub">
+                            A practical pathway for discipleship, leadership multiplication, and Kingdom influence.
+                        </p>
+                        <p>
+                            The Growing Deep and Strong® New Christian Training Centre Strategic Blueprint has been developed
+                            to help believers establish clear discipleship pathways, multiply leaders, and participate in a
+                            generational movement that influences communities, institutions, and nations for Christ.
+                        </p>
+                        <p>
+                            This free resource outlines how ordinary believers can help disciple others, raise leaders, and
+                            build a simple, reproducible structure for training centres.
+                        </p>
+                        <ul class="check-list">
+                            <li>Discover the vision behind New Christian Training Centres</li>
+                            <li>Understand the pathway from discipleship to multiplication</li>
+                            <li>Learn how this model can function in homes, workplaces, churches, and community settings</li>
+                        </ul>
+                        <div class="cta-row">
+                            <a href="#" class="btn btn--primary">Download the Strategic Blueprint</a>
+                            <a href="#" class="btn btn--ghost">Read It Online</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             CHRISTIAN DISCIPLESHIP FOR NEW CHRISTIANS
+             ============================================================ -->
+        <section class="section section--newchristians" data-aos="fade-up">
+            <div class="container container--narrow">
+                <p class="eyebrow">From Pagan Background to Group Leader</p>
+                <h2 class="section-title">Christian Discipleship for New Christians</h2>
+                <div class="prose">
+                    <p>
+                        Growing Deep and Strong® will take a person from a pagan background to a Christian servant leader
+                        in 12 months or less.
+                    </p>
+                    <p>
+                        The Growing Deep and Strong® Series is about changing and transforming the lives of people from the inside out.
+                    </p>
+                </div>
+
+                <div class="sub-block">
+                    <h3 class="sub-title">It's Easy to Teach</h3>
+                    <p>
+                        If you have previous leadership and management skills or have completed the Series as a disciple,
+                        then you can easily take others through Growing Deep and Strong® by following the steps written into the Coach's Manuals.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             PROGRAM OVERVIEW + email signup integrated
+             ACF: "Program + Brochure Signup" block
+             ============================================================ -->
+        <section class="section section--program">
+            <div class="container">
+                <div class="program">
+                    <div class="program__copy" data-aos="fade-right" data-aos-duration="800">
+                        <p class="eyebrow">19 or 37-week program</p>
+                        <h2 class="section-title">Growing Deep <span class="amp">and</span> Strong<sup>®</sup></h2>
+                        <p>
+                            Growing Deep and Strong® is a 19-week or 37-week off-the-shelf mentoring Christian discipleship
+                            and leadership program that will grow a non-Christian into a mature Christian servant leader.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Grounded in God's Word</li>
+                            <li>Strong in faith</li>
+                            <li>Living a holy and sanctified life</li>
+                            <li>Dedicated to discipling others</li>
+                            <li>Simple to use</li>
+                            <li>Easy to administrate</li>
+                            <li>Low in cost</li>
+                            <li>Builds servant leadership training blocks that will grow</li>
+                            <li>Multiplies organically</li>
+                        </ul>
+                    </div>
+
+                    <!-- Brochure signup — integrated from sidebar -->
+                    <aside class="signup-card" data-aos="fade-left" data-aos-duration="800" data-aos-delay="180">
+                        <figure class="book-figure book-figure--sm">
+                            <img
+                                src="images/book-gdas-series.png"
+                                alt="Growing Deep and Strong Series brochure cover"
+                                class="book-figure__image"
+                            />
+                        </figure>
+                        <h3 class="signup-card__title">Download our 8-page PDF brochure</h3>
+                        <p class="signup-card__sub">Share with your team and ministry leaders.</p>
+                        <!-- Static mockup form — replace action/method on conversion -->
+                        <form class="signup-form" onsubmit="return false;">
+                            <label class="visually-hidden" for="signup-name">Name</label>
+                            <input type="text" id="signup-name" name="name" placeholder="Name" />
+                            <label class="visually-hidden" for="signup-email">Email Address</label>
+                            <input type="email" id="signup-email" name="email" placeholder="Email Address" />
+                            <button type="submit" class="btn btn--primary btn--block">Send</button>
+                        </form>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             DESIGNED AS INTENTIONAL PATH
+             ============================================================ -->
+        <section class="section section--designed" data-aos="fade-up">
+            <div class="container container--narrow">
+                <p class="eyebrow">Built with intention</p>
+                <h2 class="section-title">Designed as an Intentional Christian Discipleship Path</h2>
+                <p class="section-sub">For new and maturing believers</p>
+
+                <div class="prose">
+                    <p>
+                        Its unique style is written in an easy-to-understand format to quickly establish new Christians in their
+                        faith with minimal supervision.
+                    </p>
+                    <p>
+                        <strong>The Growing Deep and Strong® Series</strong> consists of an <a href="#">evangelism video</a> and four
+                        nine-week modules, including two Encounter Weekends.
+                    </p>
+                    <p>
+                        <strong>The purpose</strong> of the four modules is to help you establish a new believer quickly with strong
+                        biblical foundations, free them from bondages they may bring into their Christian walk, teach them how to
+                        reach out to people they know, and then equip them to be a Coach and disciple new Christians.
+                    </p>
+                    <p>
+                        There are two manuals for each module: one for the disciples and one for the coach.
+                    </p>
+                    <p>
+                        The Coach's Manual has the complete presentation, filled-in answers, and questions for review and group
+                        discussion at the end of the session.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             VIDEO FEATURE — integrated from sidebar
+             ACF: "Video Feature" block — heading + body + video embed placeholder
+             ============================================================ -->
+        <section class="section section--video">
+            <div class="container">
+                <div class="video-feature">
+                    <div class="video-feature__copy" data-aos="fade-right" data-aos-duration="800">
+                        <p class="eyebrow eyebrow--gold">Watch &amp; Learn</p>
+                        <h2 class="section-title">Why do BAD THINGS happen on Earth?</h2>
+                        <p class="lede">
+                            It seems that there are invisible forces or influences at work behind the scenes.
+                        </p>
+                        <a href="#" class="btn btn--ghost">Find out why →</a>
+                    </div>
+                    <!-- VIDEO PLACEHOLDER — YouTube embed slot -->
+                    <div class="image-placeholder image-placeholder--video" data-aos="fade-left" data-aos-duration="800" data-aos-delay="150">
+                        <span>
+                            <strong>Add YouTube Video Here</strong><br />
+                            "Why do BAD THINGS happen on Earth?"
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SIMPLE TO TEACH — closing
+             ============================================================ -->
+        <section class="section section--close" data-aos="zoom-in-up">
+            <div class="container container--narrow">
+                <p class="eyebrow">In closing</p>
+                <h2 class="section-title">Simple to Teach. Easy to Use. Built to Multiply.</h2>
+                <p class="lede">
+                    The Growing Deep and Strong® Series has been tailored to suit different groups and can be used
+                    one-on-one, in servant leadership settings, or as a class in any location or time frame.
+                </p>
+                <ul class="check-list">
+                    <li>It is simple to teach</li>
+                    <li>It is easy to administrate</li>
+                    <li>It multiplies groups with minimal supervision</li>
+                    <li>It involves ordinary Christians</li>
+                </ul>
+                <div class="cta-row cta-row--center">
+                    <a href="#" class="btn btn--primary btn--lg">View the Course Outline</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             CATEGORIES — integrated from sidebar
+             ============================================================ -->
+        <section class="section section--categories" data-aos="fade-up">
+            <div class="container container--narrow">
+                <p class="eyebrow">Explore</p>
+                <h2 class="section-title section-title--center">Categories</h2>
+                <ul class="tag-cloud">
+                    <li><a href="#">Angels</a></li>
+                    <li><a href="#">Bible</a></li>
+                    <li><a href="#">Christianity</a></li>
+                    <li><a href="#">Christians</a></li>
+                    <li><a href="#">Discipleship</a></li>
+                    <li><a href="#">Evangelism</a></li>
+                    <li><a href="#">God</a></li>
+                    <li><a href="#">Holy Spirit</a></li>
+                    <li><a href="#">Marketplace Ministry</a></li>
+                    <li><a href="#">Jesus Christ</a></li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================
+         FOOTER
+         ACF: footer columns + contact form
+         ============================================================ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1 — Brand + address -->
+                <div class="footer-col footer-col--brand">
+                    <p class="footer-brand">Growing Deep <em>and</em> Strong<sup>®</sup></p>
+                    <address>
+                        Bairnsdale 3875<br />
+                        Victoria, Australia<br />
+                        <a href="mailto:info@growingdeepandstrong.com">info@growingdeepandstrong.com</a>
+                    </address>
+                    <ul class="social-list" aria-label="Social media">
+                        <li><a href="#" aria-label="Facebook">Fb</a></li>
+                        <li><a href="#" aria-label="Instagram">Ig</a></li>
+                        <li><a href="#" aria-label="YouTube">Yt</a></li>
+                        <li><a href="#" aria-label="LinkedIn">In</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2 — Navigation -->
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Christian Discipleship Course Outline</a></li>
+                        <li><a href="#">Discipleship Course Structure</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Books</a></li>
+                        <li><a href="#">Testimonies</a></li>
+                        <li><a href="#">Endorsement</a></li>
+                        <li><a href="#">New Christian Training</a></li>
+                        <li><a href="#">Why Moves of God Succeeded and Faded</a></li>
+                        <li><a href="#">How to Open a New Christian Training Center</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 — More -->
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Curriculum</a></li>
+                        <li><a href="#">SEED for the Sower</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Statement</a></li>
+                        <li><a href="#">Vision Decree</a></li>
+                        <li><a href="#">Prophecy / Promises</a></li>
+                        <li><a href="#">Partners</a></li>
+                        <li><a href="#">Promotions</a></li>
+                        <li><a href="#">Interview Form</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 — Contact form -->
+                <div class="footer-col footer-col--form">
+                    <h4>Contact Us</h4>
+                    <form class="contact-form" onsubmit="return false;">
+                        <label class="visually-hidden" for="cf-name">Name</label>
+                        <input type="text" id="cf-name" name="name" placeholder="Name" />
+                        <label class="visually-hidden" for="cf-email">Email Address</label>
+                        <input type="email" id="cf-email" name="email" placeholder="Email Address" />
+                        <label class="visually-hidden" for="cf-message">Message</label>
+                        <textarea id="cf-message" name="message" rows="4" placeholder="Message"></textarea>
+                        <label for="cf-captcha" class="captcha-label">
+                            <span>7 + 8 = ?</span>
+                            <input type="text" id="cf-captcha" name="captcha" />
+                        </label>
+                        <button type="submit" class="btn btn--primary btn--block">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Growing Deep and Strong. All Rights Reserved.</p>
+                <p>Digital Marketing Solutions by: <a href="#">Strategy Consultants Pty Ltd</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+         MINIMAL JS — mobile nav toggle + Swiper init
+         Remove on conversion if your WP theme provides its own.
+         ============================================================ -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+    <script>
+        (function () {
+            /* ---- Mobile nav toggle ------------------------------ */
+            var toggle = document.querySelector('.nav-toggle');
+            var nav = document.querySelector('.primary-nav');
+            if (toggle && nav) {
+                toggle.addEventListener('click', function () {
+                    var open = nav.classList.toggle('is-open');
+                    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+                });
+            }
+
+            /* ---- Dropdown toggles — mobile click + a11y -------- */
+            var mobileBreakpoint = 960;
+            var dropdownParents = document.querySelectorAll('.has-dropdown');
+            dropdownParents.forEach(function (li) {
+                var link = li.querySelector(':scope > a');
+                if (!link) return;
+
+                /* Click on parent link — only intercept on mobile */
+                link.addEventListener('click', function (e) {
+                    if (window.innerWidth > mobileBreakpoint) return;
+                    e.preventDefault();
+                    var isOpen = li.classList.toggle('is-open');
+                    link.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    /* Collapse siblings for an accordion feel */
+                    dropdownParents.forEach(function (other) {
+                        if (other !== li) {
+                            other.classList.remove('is-open');
+                            var ol = other.querySelector(':scope > a');
+                            if (ol) ol.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                });
+
+                /* Desktop hover — sync aria-expanded */
+                li.addEventListener('mouseenter', function () {
+                    if (window.innerWidth > mobileBreakpoint) {
+                        link.setAttribute('aria-expanded', 'true');
+                    }
+                });
+                li.addEventListener('mouseleave', function () {
+                    if (window.innerWidth > mobileBreakpoint) {
+                        link.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+
+            /* Click-outside closes any open mobile dropdown */
+            document.addEventListener('click', function (e) {
+                if (window.innerWidth > mobileBreakpoint) return;
+                if (e.target.closest('.has-dropdown')) return;
+                dropdownParents.forEach(function (li) {
+                    li.classList.remove('is-open');
+                    var a = li.querySelector(':scope > a');
+                    if (a) a.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            /* ---- Hero Swiper ------------------------------------ */
+            function initHeroSwiper() {
+                if (typeof window.Swiper === 'undefined') {
+                    return setTimeout(initHeroSwiper, 50);
+                }
+                new window.Swiper('.hero-swiper', {
+                    effect: 'fade',
+                    fadeEffect: { crossFade: true },
+                    loop: true,
+                    speed: 900,
+                    autoplay: {
+                        delay: 6500,
+                        disableOnInteraction: false,
+                        pauseOnMouseEnter: true
+                    },
+                    keyboard: { enabled: true },
+                    a11y: {
+                        prevSlideMessage: 'Previous slide',
+                        nextSlideMessage: 'Next slide'
+                    },
+                    pagination: {
+                        el: '.hero-swiper__pagination',
+                        clickable: true
+                    },
+                    navigation: {
+                        prevEl: '.swiper-button-prev',
+                        nextEl: '.swiper-button-next'
+                    }
+                });
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initHeroSwiper);
+            } else {
+                initHeroSwiper();
+            }
+            /* ---- AOS — Animate On Scroll ------------------------ */
+            function initAOS() {
+                if (typeof window.AOS === 'undefined') {
+                    return setTimeout(initAOS, 50);
+                }
+                window.AOS.init({
+                    duration: 700,
+                    easing: 'ease-out-cubic',
+                    once: true,           /* trigger only the first time */
+                    offset: 80,            /* px from bottom of viewport */
+                    delay: 0,
+                    anchorPlacement: 'top-bottom',
+                    disable: function () {
+                        /* Respect reduced-motion users */
+                        return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    }
+                });
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initAOS);
+            } else {
+                initAOS();
+            }
+        })();
+    </script>
+</body>
+</html>
