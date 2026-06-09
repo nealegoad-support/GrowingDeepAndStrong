@@ -1,0 +1,451 @@
+import os
+import re
+
+# Read the raw content
+with open('teacher-training-tutorials.html', 'r', encoding='utf-8') as f:
+    raw_content = f.read()
+
+header = """<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teacher Training Tutorials — Growing Deep and Strong®</title>
+    <meta name="description" content="Training Tutorials to help you use the Growing Deep and Strong® Series in your New Christian Training Hub." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <style>
+        .video-card {
+            background: var(--color-paper);
+            border: 1px solid var(--color-rule);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .video-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+            border-color: var(--color-gold);
+        }
+        .video-card__thumb-link {
+            display: block;
+            position: relative;
+            aspect-ratio: 16 / 9;
+            background: var(--color-navy-light);
+            overflow: hidden;
+        }
+        .video-card__thumb {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: opacity 0.3s var(--ease);
+        }
+        .video-card__thumb-link:hover .video-card__thumb {
+            opacity: 1;
+        }
+        .video-card__play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 64px;
+            height: 64px;
+            background: var(--color-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-paper);
+            font-size: 24px;
+            padding-left: 4px; /* optical center */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: background 0.3s var(--ease), transform 0.3s var(--ease);
+        }
+        .video-card__thumb-link:hover .video-card__play {
+            background: var(--color-gold-dark);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        .video-card__content {
+            padding: var(--space-8);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .video-card__title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--color-navy);
+            margin-bottom: var(--space-4);
+            line-height: 1.2;
+        }
+        .video-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+            margin-bottom: var(--space-6);
+        }
+        .video-list li {
+            position: relative;
+            padding-left: var(--space-6);
+        }
+        .video-list li::before {
+            content: "•";
+            color: var(--color-gold);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        .sub-list {
+            list-style: none;
+            padding: 0;
+            margin: var(--space-2) 0 var(--space-2) var(--space-4);
+        }
+        .sub-list li::before {
+            content: "–";
+            color: var(--color-gold);
+        }
+        .tutorials-grid {
+            display: grid;
+            gap: var(--space-12);
+            align-items: start;
+        }
+        @media (min-width: 900px) {
+            .tutorials-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header" role="banner">
+        <div class="brand-strip">
+            <div class="brand-strip__inner">
+                <a href="index.html" class="brand">
+                    <figure class="brand__logo-figure">
+                        <img src="GDAS-Final_Australian_Landscape.jpg"
+                             alt="Growing Deep and Strong — Australian landscape brand mark"
+                             class="brand__logo-img" />
+                        <figcaption class="brand__scripture">Jer 17:7–8</figcaption>
+                    </figure>
+                    <span class="brand__wordmark">
+                        <span class="brand__name">Growing Deep <em>and</em> Strong<sup>®</sup></span>
+                        <span class="brand__tag">Christian Discipleship</span>
+                    </span>
+                </a>
+                <div class="brand-strip__actions">
+                    <a href="mailto:info@growingdeepandstrong.com" class="brand-strip__contact">info@growingdeepandstrong.com</a>
+                    <a href="#lead-magnet" class="btn btn--primary btn--sm brand-strip__cta">Free Resources</a>
+                </div>
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+        <div class="nav-strip">
+            <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+                <ul class="primary-nav__list">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="has-dropdown">
+                        <a href="new-christian-training.html" aria-haspopup="true" aria-expanded="false" aria-current="page">
+                            New Christian Training
+                            <span class="caret" aria-hidden="true"></span>
+                        </a>
+                        <ul class="dropdown" role="menu">
+                            <li role="none"><a role="menuitem" href="why-moves-of-god-succeeded-and-faded.html">Why Moves of God Succeeded and Faded</a></li>
+                            <li role="none"><a role="menuitem" href="how-to-open-a-new-christian-training-center.html">How to Open a New Christian Training Center</a></li>
+                            <li role="none"><a role="menuitem" href="curriculum.html">Curriculum</a></li>
+                            <li role="none"><a role="menuitem" href="teacher-training-tutorials.html" aria-current="page">Teacher Training Tutorials</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="coach.html" aria-haspopup="true" aria-expanded="false">
+                            Be A Coach / Coaching
+                            <span class="caret" aria-hidden="true"></span>
+                        </a>
+                        <ul class="dropdown" role="menu">
+                            <li role="none"><a role="menuitem" href="coach.html">Be A Coach Online Training</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="disciple.html">Be A Disciple / Discipleship</a></li>
+                    <li class="has-dropdown">
+                        <a href="#" aria-haspopup="true" aria-expanded="false">
+                            Shop
+                            <span class="caret" aria-hidden="true"></span>
+                        </a>
+                        <ul class="dropdown" role="menu">
+                            <li role="none"><a role="menuitem" href="#">Return &amp; Refund Policy</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#" aria-haspopup="true" aria-expanded="false">
+                            Testimonies
+                            <span class="caret" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- HERO -->
+        <header class="editorial-hero">
+            <div class="editorial-hero__media">
+                <img src="GDAS-Final_Australian_Landscape.jpg" alt="Australian Landscape" class="editorial-hero__img" />
+            </div>
+            <div class="editorial-hero__content container">
+                <p class="eyebrow eyebrow--gold">Equip Yourself</p>
+                <h1 class="hero-heading" id="editorial-hero-heading" style="color: #FFF;">Teacher Training Tutorials</h1>
+                <p class="hero-sub" style="color: #FFF;">Gain the confidence to start your own New Christian Training Hub</p>
+            </div>
+        </header>
+
+        <section class="section">
+            <div class="container">
+                <div class="tutorials-grid">
+                    
+                    <!-- PART 1 -->
+                    <article class="video-card" data-aos="fade-up">
+                        <a href="https://www.youtube.com/watch?v=eGlqfiAchZs" class="video-card__thumb-link" target="_blank" rel="noopener noreferrer" aria-label="Watch Part 1 Video">
+                            <img src="GDAS-Final_Australian_Landscape.jpg" alt="Part 1 Video Thumbnail" class="video-card__thumb" />
+                            <div class="video-card__play">▶</div>
+                        </a>
+                        <div class="video-card__content">
+                            <h2 class="video-card__title">How to use Growing Deep and Strong® – Training Tutorials Part 1</h2>
+                            <p>This is a 65-minute video and is part 1 of a 2-part series Training Tutorials to help you use the Growing Deep and Strong® Series in your New Christian Training Hub.</p>
+                            <p><strong>This video outlines:</strong></p>
+                            <ul class="video-list">
+                                <li>1) Why we wrote the Series and the challenges a new Christian will face,</li>
+                                <li>2) The coming Reformation and our need to contain the harvest,</li>
+                                <li>3) Mistakes made in past revivals and why we can’t afford to repeat the same mistakes</li>
+                                <li>4) The profile of today’s New Christian,</li>
+                                <li>5) In the beginning, my story and the struggle using existing discipleship materials,</li>
+                                <li>6) The discipleship mandate to write a program anyone could use to disciple others,</li>
+                                <li>7) How and why it works, plus testimonies from students and teachers</li>
+                            </ul>
+                            <p>The 2-part Training Tutorials series will give you the confidence to start your own New Christian Training Hub with our inexpensive and easy to use, new Christian Discipleship and Small group Leadership programs.</p>
+                            <p>It has never been easier or cheaper to create a New Christian Training Hub anywhere in the world. Almost anyone can start their own New Christian Training Hub discipling new Christians with our inexpensive and easy to implement, new Christian Discipleship and Small Group Leadership programs.</p>
+                        </div>
+                    </article>
+
+                    <!-- PART 2 -->
+                    <article class="video-card" data-aos="fade-up" data-aos-delay="100">
+                        <a href="https://www.youtube.com/watch?v=f7ZjwKCjdnI" class="video-card__thumb-link" target="_blank" rel="noopener noreferrer" aria-label="Watch Part 2 Video">
+                            <img src="GDAS-Final_Australian_Landscape.jpg" alt="Part 2 Video Thumbnail" class="video-card__thumb" />
+                            <div class="video-card__play">▶</div>
+                        </a>
+                        <div class="video-card__content">
+                            <h2 class="video-card__title">How to use Growing Deep and Strong® – Training Tutorials Part 2</h2>
+                            <p>This is a 75-minute video and is part 2 of a 2-part series Training Tutorials to help you use the Growing Deep and Strong® Series in your New Christian Training Hub.</p>
+                            <p><strong>This video outlines:</strong></p>
+                            <ul class="video-list">
+                                <li>1) The Bible we use and why</li>
+                                <li>2) Behind The Scenes Video and why</li>
+                                <li>3) Topics we cover in the Basic Course
+                                    <ul class="sub-list">
+                                        <li>Laying The Foundation</li>
+                                        <li>Encounter One Weekend</li>
+                                        <li>Power of Godly Character</li>
+                                        <li>Encounter Two Weekend</li>
+                                    </ul>
+                                </li>
+                                <li>4) Advanced Course
+                                    <ul class="sub-list">
+                                        <li>Motivational Gifts Questionnaire</li>
+                                        <li>Warfare Prayer Strategies</li>
+                                        <li>Reaching the lost</li>
+                                        <li>Discipling Others</li>
+                                    </ul>
+                                </li>
+                                <li>5) Bonding and Building relationships</li>
+                                <li>6) How and why we present each topic three ways</li>
+                                <li>7) Testimonies of participants</li>
+                            </ul>
+                            
+                            <hr style="margin: var(--space-6) 0; border: none; border-top: 1px solid var(--color-rule);" />
+                            
+                            <h3 style="font-family: var(--font-display); color: var(--color-navy); margin-bottom: var(--space-4);">Your next steps</h3>
+                            <ul class="video-list">
+                                <li>Review website <a href="https://www.growingdeepandstrong.com">https://www.growingdeepandstrong.com</a> for more details etc.</li>
+                                <li>(Optional) order Coach’s Full Course Pack<br>
+                                PS. One off purchase<br>
+                                <a href="https://www.growingdeepandstrong.com/product/coachs-full-course-pack/">https://www.growingdeepandstrong.com/product/coachs-full-course-pack/</a></li>
+                                <li>Order ®NKJV Spirit Filled Life Study Bible (ISBN 0529100142)</li>
+                                <li>Create your New Christian Training Hub</li>
+                                <li>Thanks for helping disciple the harvest</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+"""
+
+footer = """
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-col--brand">
+                    <p class="footer-brand">Growing Deep <em>and</em> Strong<sup>®</sup></p>
+                    <address>
+                        Bairnsdale 3875<br />
+                        Victoria, Australia<br />
+                        <a href="mailto:info@growingdeepandstrong.com">info@growingdeepandstrong.com</a>
+                    </address>
+                    <ul class="social-list" aria-label="Social media">
+                        <li><a href="#" aria-label="Facebook">Fb</a></li>
+                        <li><a href="#" aria-label="Instagram">Ig</a></li>
+                        <li><a href="#" aria-label="YouTube">Yt</a></li>
+                        <li><a href="#" aria-label="LinkedIn">In</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="disciple.html">I Want to Be a Disciple</a></li>
+                        <li><a href="coach.html">I Want to Coach Others</a></li>
+                        <li><a href="curriculum.html">Curriculum / Course Outline</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Testimonies</a></li>
+                        <li><a href="new-christian-training.html">New Christian Training Hubs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">SEED for the Sower</a></li>
+                        <li><a href="#">Strategic Blueprint (Free)</a></li>
+                        <li><a href="#">Endorsement</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Statement</a></li>
+                        <li><a href="#">Vision Decree</a></li>
+                        <li><a href="#">Partners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-col--form">
+                    <h4>Contact Us</h4>
+                    <form class="contact-form" onsubmit="return false;">
+                        <label class="visually-hidden" for="cf-name-nctc">Name</label>
+                        <input type="text" id="cf-name-nctc" name="name" placeholder="Name" />
+                        <label class="visually-hidden" for="cf-email-nctc">Email Address</label>
+                        <input type="email" id="cf-email-nctc" name="email" placeholder="Email Address" />
+                        <label class="visually-hidden" for="cf-message-nctc">Message</label>
+                        <textarea id="cf-message-nctc" name="message" rows="4" placeholder="Message"></textarea>
+                        <label for="cf-captcha-nctc" class="captcha-label">
+                            <span>7 + 8 = ?</span>
+                            <input type="text" id="cf-captcha-nctc" name="captcha" />
+                        </label>
+                        <button type="submit" class="btn btn--primary btn--block">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Growing Deep and Strong. All Rights Reserved.</p>
+                <p>Digital Marketing Solutions by: <a href="#">Strategy Consultants Pty Ltd</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+    <script>
+        (function () {
+            var toggle = document.querySelector('.nav-toggle');
+            var nav = document.querySelector('.primary-nav');
+            if (toggle && nav) {
+                toggle.addEventListener('click', function () {
+                    var open = nav.classList.toggle('is-open');
+                    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+                });
+            }
+
+            var mobileBreak = 960;
+            var dropdownParents = document.querySelectorAll('.has-dropdown');
+            dropdownParents.forEach(function (li) {
+                var link = li.querySelector(':scope > a');
+                if (!link) return;
+                link.addEventListener('click', function (e) {
+                    if (window.innerWidth > mobileBreak) return;
+                    e.preventDefault();
+                    var isOpen = li.classList.toggle('is-open');
+                    link.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    dropdownParents.forEach(function (other) {
+                        if (other !== li) {
+                            other.classList.remove('is-open');
+                            var ol = other.querySelector(':scope > a');
+                            if (ol) ol.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                });
+                li.addEventListener('mouseenter', function () {
+                    if (window.innerWidth > mobileBreak)
+                        link.setAttribute('aria-expanded', 'true');
+                });
+                li.addEventListener('mouseleave', function () {
+                    if (window.innerWidth > mobileBreak)
+                        link.setAttribute('aria-expanded', 'false');
+                });
+            });
+            document.addEventListener('click', function (e) {
+                if (window.innerWidth > mobileBreak) return;
+                if (e.target.closest('.has-dropdown')) return;
+                dropdownParents.forEach(function (li) {
+                    li.classList.remove('is-open');
+                    var a = li.querySelector(':scope > a');
+                    if (a) a.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            function initAOS() {
+                if (typeof window.AOS === 'undefined') return setTimeout(initAOS, 50);
+                window.AOS.init({
+                    duration: 700,
+                    easing: 'ease-out-cubic',
+                    once: true,
+                    offset: 80,
+                    disable: function () {
+                        return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    }
+                });
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initAOS);
+            } else {
+                initAOS();
+            }
+        })();
+    </script>
+</body>
+</html>
+"""
+
+full_html = header + footer
+
+with open('teacher-training-tutorials.html', 'w', encoding='utf-8') as f:
+    f.write(full_html)
+
+print("Created teacher-training-tutorials.html")
