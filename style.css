@@ -225,6 +225,12 @@ h6 {
     padding: 0 var(--space-6);
 }
 
+@media (max-width: 480px) {
+    .container {
+        padding: 0 var(--space-4);
+    }
+}
+
 .container--narrow {
     max-width: var(--container-narrow);
 }
@@ -288,6 +294,13 @@ h6 {
     gap: var(--space-6);
 }
 
+@media (max-width: 480px) {
+    .brand-strip__inner {
+        padding: var(--space-3) var(--space-4);
+        gap: var(--space-3);
+    }
+}
+
 @media (min-width: 1280px) {
     .brand-strip__inner {
         padding: var(--space-5) var(--space-8);
@@ -327,7 +340,14 @@ h6 {
     align-items: center;
     gap: var(--space-3);
     color: var(--color-navy);
-    flex-shrink: 0;
+    flex-shrink: 1;
+    min-width: 0;
+}
+
+@media (max-width: 480px) {
+    .brand {
+        gap: var(--space-2);
+    }
 }
 
 /* Landscape image replaces the G mark; scripture sits directly beneath */
@@ -375,7 +395,8 @@ h6 {
     font-size: 1.1rem;
     font-weight: 600;
     color: var(--color-navy);
-    white-space: nowrap;
+    white-space: normal;
+    text-wrap: balance;
     text-transform: uppercase;
     letter-spacing: 0.06em;
 }
@@ -574,6 +595,7 @@ h6 {
     flex-direction: column;
     justify-content: center;
     gap: 5px;
+    flex-shrink: 0;
 }
 
 .nav-toggle span {
@@ -1043,7 +1065,7 @@ h6 {
 
 .transform-path {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
     gap: var(--space-3);
 }
 
@@ -1119,7 +1141,7 @@ h6 {
 
 @media (max-width: 600px) {
     .transform-path {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }
 }
 
@@ -1553,7 +1575,7 @@ h1#editorial-hero-heading {
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 160px), 1fr));
     gap: var(--space-3);
 }
 
@@ -1692,7 +1714,7 @@ h1#editorial-hero-heading {
     padding: 0;
     margin: var(--space-6) 0 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
     gap: var(--space-3);
 }
 
@@ -2064,6 +2086,7 @@ h1#editorial-hero-heading {
     /* Mobile dropdown — inline accordion */
     .dropdown {
         position: static;
+        min-width: 0;
         opacity: 1;
         visibility: visible;
         transform: none !important;
@@ -2521,7 +2544,7 @@ h1#editorial-hero-heading {
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
     gap: var(--space-6);
 }
 
@@ -3268,7 +3291,7 @@ h1#editorial-hero-heading {
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
     gap: var(--space-4);
 }
 
@@ -4861,11 +4884,11 @@ h1#editorial-hero-heading {
 /* Stat grid inside the Barna callout */
 .stat-grid {
     list-style: none;
-    margin: 1.2rem 0 0;
     padding: 0;
+    margin: var(--space-4) 0 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1.2rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+    gap: var(--space-2);
 }
 
 .stat-grid li {
