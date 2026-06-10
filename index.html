@@ -7,13 +7,14 @@
     <title>Growing Deep and Strong® — New Christian Training Centres</title>
 
     <!-- ============================================================
-         FONTS — EB Garamond (all headings) + Inter (body)
+         FONTS — Roboto Slab (headings) + Open Sans (body)
+                 EB Garamond + Inter retained for .brand__wordmark
          ACF/WP: enqueue both via wp_enqueue_style() in functions.php
          ============================================================ -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Roboto+Slab:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet" />
 
     <link rel="stylesheet" href="style.css" />
@@ -73,10 +74,14 @@
                             <span class="caret" aria-hidden="true"></span>
                         </a>
                         <ul class="dropdown" role="menu">
-                            <li role="none"><a role="menuitem" href="why-moves-of-god-succeeded-and-faded.html">Why Moves of God Succeeded and Faded</a></li>
-                            <li role="none"><a role="menuitem" href="how-to-open-a-new-christian-training-center.html">How to Open a New Christian Training Center</a></li>
+                            <li role="none"><a role="menuitem" href="why-moves-of-god-succeeded-and-faded.html">Why
+                                    Moves of God Succeeded and Faded</a></li>
+                            <li role="none"><a role="menuitem"
+                                    href="how-to-open-a-new-christian-training-center.html">How to Open a New Christian
+                                    Training Center</a></li>
                             <li role="none"><a role="menuitem" href="curriculum.html">Curriculum</a></li>
-                            <li role="none"><a role="menuitem" href="teacher-training-tutorials.html">Teacher Training Tutorials</a></li>
+                            <li role="none"><a role="menuitem" href="teacher-training-tutorials.html">Teacher Training
+                                    Tutorials</a></li>
                         </ul>
                     </li>
                     <li class="has-dropdown">
@@ -114,23 +119,20 @@
     </header>
 
     <!-- ============================================================
-         BRAND HERO — Official landscape identity image
+         BRAND HERO — Blueprint for Success identity image
          ACF: "Brand Hero" block
-         Fields: landscape_img | scripture_ref
-         Rule: scripture_ref must always sit directly beneath the water reflection
+         Fields: landscape_img
+         Note: image has "Growing Deep and Strong®", "Blueprint for Success",
+               and "Jeremiah 17:7-8" embedded — intentionally not readable by Google.
          Responsive: portrait → extend water downward, rock stays ~1/3 from top
          ============================================================ -->
-    <section class="brand-hero" aria-label="Brand identity — Jeremiah 17:7 and 8">
+    <section class="brand-hero" aria-label="Growing Deep and Strong — Blueprint for Success">
         <figure class="brand-hero__figure">
             <div class="brand-hero__image-wrap">
-                <img src="GDAS-Final_Australian_Landscape.jpg"
-                    alt="Uluru reflected in still water at dusk — Growing Deep and Strong brand landscape"
+                <img src="Blueprint%20for%20Success%20Poster%20Text.png"
+                    alt="Uluru reflected in still water — Growing Deep and Strong Blueprint for Success, Jeremiah 17:7-8"
                     class="brand-hero__img" />
             </div>
-            <!-- Scripture: always directly beneath the water reflection element -->
-            <figcaption class="brand-hero__caption">
-                <p class="brand-hero__scripture">Jeremiah 17:7 and 8</p>
-            </figcaption>
         </figure>
     </section>
 
@@ -151,11 +153,10 @@
                      ACF: eyebrow | headline | mandate | body | transform_path (repeater) | verse -->
                 <div class="nctc-vision__copy">
 
-                    <p class="nctc-vision__eyebrow">New Christian Training Centres — The Big Vision</p>
+                    <p class="nctc-vision__eyebrow">New Christian Training Centres</p>
 
                     <h1 class="nctc-vision__headline" id="nctc-vision-heading">
-                        Taking people from a pagan background to a societal reformer
-                        <em>with a biblical worldview</em> — within 12 months or less.
+                        Start Your Own New Christian Training Center
                     </h1>
 
                     <p class="nctc-vision__mandate">Disciple. Strengthen. Send.</p>
@@ -193,17 +194,6 @@
                         </div>
                     </div>
 
-                    <blockquote class="nctc-vision__verse">
-                        <p>"Blessed is the man who trusts in the Lord,
-                            And whose hope is the Lord.
-                            For he shall be like a tree planted by the waters,
-                            Which spreads out its roots by the river,
-                            And will not fear when heat comes;
-                            But its leaf will be green,
-                            And will not be anxious in the year of drought,
-                            Nor will cease from yielding fruit."</p>
-                        <cite>— Jeremiah 17:7–8</cite>
-                    </blockquote>
 
                 </div>
 
@@ -270,7 +260,7 @@
                     <div class="hero-split__card-body">
                         <span class="hero-split__num" aria-hidden="true">02</span>
                         <p class="hero-split__kicker">For Servant Leaders &amp; Mentors</p>
-                        <h3 class="hero-split__card-title">Coach Others</h3>
+                        <h3 class="hero-split__card-title">I Want to Coach Others</h3>
                         <p class="hero-split__card-lede">
                             Take people from a pagan background to a societal reformer.
                             It is all done for you — 35,000 hours invested. You just need to show up.
@@ -283,6 +273,25 @@
                         </ul>
                         <span class="hero-split__card-cta btn btn--ghost-light btn--lg">Apply to Become a Coach
                             &rarr;</span>
+                    </div>
+                </a>
+
+                <!-- Path 03 — Get Your Free Download -->
+                <a href="#free-resources" class="hero-split__card hero-split__card--download">
+                    <div class="hero-split__card-body">
+                        <span class="hero-split__num" aria-hidden="true">03</span>
+                        <p class="hero-split__kicker">Free Strategic Resource</p>
+                        <h3 class="hero-split__card-title">Get Your Free Download</h3>
+                        <p class="hero-split__card-lede">
+                            Receive our New Christian Training Centre Strategic Blueprint —
+                            the complete roadmap from first encounter to multiplication.
+                        </p>
+                        <ul class="hero-split__list">
+                            <li>Complete discipleship framework</li>
+                            <li>Step-by-step training guide</li>
+                            <li>Delivered straight to your inbox</li>
+                        </ul>
+                        <span class="hero-split__card-cta btn btn--gold btn--lg">Send Me the Blueprint &rarr;</span>
                     </div>
                 </a>
 
