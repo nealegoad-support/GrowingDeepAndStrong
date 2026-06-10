@@ -1006,6 +1006,39 @@ h6 {
     }
 }
 
+/* Mobile / tablet reorder (below the 960px two-column breakpoint):
+   Carl wants the journey boxes visible before the opt-in form —
+   "not far down the phone they've gotta be able to see I want to be a
+   coach". The opt-in lives inside .nctc-vision__layout while the journey
+   boxes are a separate .hero-split sibling, so flatten both wrappers with
+   display:contents and reorder copy → journey → opt-in as flex children
+   of .nctc-vision. Desktop (≥960px) is unaffected. */
+@media (max-width: 959px) {
+    .nctc-vision {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nctc-vision__inner,
+    .nctc-vision__layout {
+        display: contents;
+    }
+
+    .nctc-vision__copy {
+        order: 1;
+        padding: var(--space-12) var(--space-4) 0;
+    }
+
+    .hero-split.hero-split--inline {
+        order: 2;
+    }
+
+    .nctc-optin {
+        order: 3;
+        margin: var(--space-4) var(--space-4) var(--space-8);
+    }
+}
+
 .nctc-vision__eyebrow {
     font-family: var(--font-body);
     font-size: 0.78rem;
