@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Holy Spirit, — A new era begins — Growing Deep and Strong®</title>
+    <meta name="description" content="In nonbiblical literature, parakletos had the technical meaning of an attorney who appears in court in another&#x27;s behalf. The Holy Spirit leads believers to a ..." />
+
+    <!-- ============================================================
+         FONTS — Roboto Slab (headings) + Open Sans (body)
+                 EB Garamond + Inter retained for .brand__wordmark
+         ============================================================ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Roboto+Slab:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- AOS — Animate On Scroll -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+    <style>
+        /* --- additive helpers for cloned content pages (new pages only) --- */
+        .editorial__figure { margin: 2.4rem auto; text-align: center; }
+        .editorial__figure img { max-width: 100%; height: auto; border-radius: 6px;
+            box-shadow: 0 10px 30px rgba(10,26,38,.12); }
+        .editorial__body table { width: 100%; border-collapse: collapse; margin: 2rem 0;
+            font-family: "Open Sans", sans-serif; font-size: .95rem; }
+        .editorial__body th, .editorial__body td { border: 1px solid #e4dcca;
+            padding: .7rem .9rem; text-align: left; vertical-align: top; }
+        .editorial__body th { background: #f3ede1; font-weight: 600; }
+        .index-grid { list-style: none; margin: 2.5rem 0 0; padding: 0; display: grid;
+            gap: 1.6rem; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+        .index-card { display: flex; flex-direction: column; background: #fff;
+            border: 1px solid #ece4d4; border-radius: 8px; padding: 1.6rem 1.6rem 1.8rem;
+            box-shadow: 0 6px 20px rgba(10,26,38,.06); transition: transform .25s, box-shadow .25s; }
+        .index-card:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(10,26,38,.12); }
+        .index-card__eyebrow { font-family: "Inter", sans-serif; font-size: .72rem;
+            letter-spacing: .12em; text-transform: uppercase; color: #b8924a; margin: 0 0 .5rem; }
+        .index-card__title { font-family: "Roboto Slab", serif; font-size: 1.2rem;
+            color: #1c3a52; margin: 0 0 .6rem; line-height: 1.25; }
+        .index-card__body { font-family: "Open Sans", sans-serif; color: #4a5a66;
+            font-size: .94rem; line-height: 1.6; margin: 0 0 1.2rem; flex: 1; }
+        .index-card .btn { align-self: flex-start; margin-top: auto; }
+        .sitemap-list { list-style: none; margin: .6rem 0 2.2rem; padding: 0; columns: 2;
+            column-gap: 2.5rem; font-family: "Open Sans", sans-serif; }
+        .sitemap-list li { margin: 0 0 .55rem; break-inside: avoid; }
+        .sitemap-list a { color: #1c3a52; text-decoration: none; border-bottom: 1px solid transparent; }
+        .sitemap-list a:hover { color: #b8924a; border-bottom-color: #b8924a; }
+        @media (max-width: 640px){ .sitemap-list { columns: 1; } }
+        .contact-details { font-family: "Open Sans", sans-serif; line-height: 1.9;
+            color: #2a3b46; font-size: 1.05rem; }
+        .contact-details strong { color: #1c3a52; }
+    </style></head>
+
+<body>
+
+<header class="site-header" role="banner">
+
+        <div class="brand-strip">
+            <div class="brand-strip__inner">
+
+                <a href="index.html" class="brand">
+                    <figure class="brand__logo-figure">
+                        <img src="GDAS-Final_Australian_Landscape.jpg"
+                             alt="Growing Deep and Strong — Australian landscape brand mark"
+                             class="brand__logo-img" />
+                        <figcaption class="brand__scripture">Jer 17:7–8</figcaption>
+                    </figure>
+                    <span class="brand__wordmark">
+                        <span class="brand__name">Growing Deep <em>AND</em> Strong<sup>®</sup></span>
+                        <span class="brand__tag">Christian Discipleship</span>
+                    </span>
+                </a>
+
+                <div class="brand-strip__actions">
+                    <a href="mailto:info@growingdeepandstrong.com" class="brand-strip__contact">
+                        info@growingdeepandstrong.com
+                    </a>
+                    <a href="index.html#free-resources" class="btn btn--primary btn--sm brand-strip__cta">Free Resources</a>
+                </div>
+
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+                    <span></span><span></span><span></span>
+                </button>
+
+            </div>
+        </div>
+
+        <div class="nav-strip">
+            <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+                <ul class="primary-nav__list">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="has-dropdown">
+                        <a href="about-us.html" aria-haspopup="true" aria-expanded="false">
+                            About Us
+                            <span class="caret" aria-hidden="true"></span>
+                        </a>
+                        <ul class="dropdown" role="menu">
+                            <li role="none"><a role="menuitem" href="our-objectives.html">Our Objectives</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="new-christian-training.html" aria-haspopup="true" aria-expanded="false" aria-current="page">
+                            New Christian Training
+                            <span class="caret" aria-hidden="true"></span>
+                        </a>
+                        <ul class="dropdown" role="menu">
+                            <li role="none"><a role="menuitem" href="why-moves-of-god-succeeded-and-faded.html" aria-current="page">Why Moves of God Succeeded and Faded</a></li>
+                            <li role="none"><a role="menuitem" href="how-to-open-a-new-christian-training-center.html">How to Open a New Christian Training Center</a></li>
+                            <li role="none"><a role="menuitem" href="curriculum.html">Curriculum</a></li>
+                            <li role="none"><a role="menuitem" href="teacher-training-tutorials.html">Teacher Training Tutorials</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="coach.html" aria-haspopup="true" aria-expanded="false">
+                            Be A Coach / Coaching
+                            <span class="caret" aria-hidden="true"></span>
+                        </a>
+                        <ul class="dropdown" role="menu">
+                            <li role="none"><a role="menuitem" href="coach.html">Be A Coach Online Training</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="disciple.html">Be A Disciple / Discipleship</a></li>
+                    <li><a href="blogs.html">Blog</a></li>
+                    <li class="has-dropdown">
+                        <a href="shop.html" aria-haspopup="true" aria-expanded="false">
+                            Shop
+                            <span class="caret" aria-hidden="true"></span>
+                        </a>
+                        <ul class="dropdown" role="menu">
+                            <li role="none"><a role="menuitem" href="return-refund-policy.html">Return &amp; Refund Policy</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="testimonies.html" aria-haspopup="true" aria-expanded="false">
+                            Testimonies
+                            <span class="caret" aria-hidden="true"></span>
+                        </a>
+                        <ul class="dropdown" role="menu">
+                            <li role="none"><a role="menuitem" href="endorsement.html">Endorsement</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="free-resources.html">Free Resources</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </header>
+
+    <main id="main">
+
+        <section class="editorial-hero" aria-labelledby="editorial-hero-heading">
+            <div class="container container--narrow">
+                <p class="eyebrow eyebrow--gold" data-aos="fade-up">Holy Spirit Series</p>
+                <h1 class="editorial-hero__title" id="editorial-hero-heading" data-aos="fade-up">Holy Spirit, — A new era begins</h1>
+            </div>
+        </section>
+
+        <article class="editorial">
+            <div class="container container--narrow editorial__body">
+<p class="editorial__lead has-dropcap" data-aos="fade-up"><figure class="editorial__figure" data-aos="fade-up"><img src="https://www.growingdeepandstrong.com/wp-content/uploads/2026/05/holyspiritnewerahighqualitycinematiclighting.webp" alt="Holy Spirit, — A new era begins" loading="lazy" /></figure>Jesus taught His <a href="discipleship-course-structure.html">disciples</a> that when He left this earth, He would send the Holy Spirit.<br />
+In John 14:16 &amp; 17 His arrival was foretold and Jesus said this to His disciples,</p>
+<p><sup>16</sup> And I will ask the Father, and he will give you another Counselor, who will never leave you. <sup>17</sup> He is the Holy Spirit, who leads into all truth. The world at large cannot receive him, because it isn’t looking for him and doesn’t recognize him. But you do, because he lives with you now and later will be in you. NLT</p>
+<p>The word Counsellor is also translated Helper. This means someone who has been called alongside as a barrister in court to plead our case.</p>
+<p>There are two other things the Holy Spirit does for us.<br />
+Firstly, He helps us as believers to understand God’s truth.<br />
+Secondly, He gives us strength to live a life that is completely different from the world’s value system which is hostile to the way God wants us to live.</p>
+<p>In John 14:16, Jesus says that the Holy Spirit is <b>another</b> Helper, that is, another of <b>exactly</b> the same kind as He Himself is.</p>
+<p>Now The scene is set for the third Person of the Godhead to come and empower the disciples.<br />
+They were to continue what Jesus had begun to do and teach, to be just the same as He was on earth.</p>
+<p>The Holy Spirit would enable them to perform signs and wonders and to teach with God’s authority, which would reveal God’s power through them.</p>
+<p>In <a href="https://www.biblegateway.com/passage/?search=Acts%201%3A8&amp;version=NIV">Acts 1:8</a> Jesus said,</p>
+<p><sup>8</sup> But when the Holy Spirit has come upon you, you will receive power and will tell people about me everywhere—in Jerusalem, throughout Judea, in Samaria, and to the ends of the earth.” NLT</p>
+<p>Notice that the disciples were to be witnesses. They would experience the coming of the Holy Spirit powerfully and be so touched that they could not help but tell everyone what they had seen and heard.</p>
+<p>In Acts 2 we read of</p>
+<h2 class="section-title" data-aos="fade-up">The Holy Spirit’s arrival</h2>
+<p><figure class="editorial__figure" data-aos="fade-up"><img src="https://www.growingdeepandstrong.com/wp-content/uploads/2026/05/arrivalofholyspirithighqualitycinematiclighting.webp" alt="Holy Spirit, — A new era begins" loading="lazy" /></figure>Acts 1 tells us that there were 120 disciples who had been meeting together to wait and to pray. The disciples were all assembled in one accord, waiting.</p>
+<p>Now we come to the Day of Pentecost in Acts 2, Pentecost was a Jewish festival celebrated annually at Jerusalem. People from all over the known world from many countries and languages came for this festival.</p>
+<p>When the Holy Spirit came, it was</p>
+<h2 class="section-title" data-aos="fade-up">A noisy arrival</h2>
+<p>The Holy Spirit did not come secretly. He announced His arrival with plenty of noise!</p>
+<p><a href="https://www.biblegateway.com/passage/?search=Acts%202%3A2-3&amp;version=NIV">Acts 2:2 &amp; 3</a> tells us what happened.</p>
+<p><sup>2</sup> Suddenly, there was a sound from heaven like the roaring of a mighty windstorm in the skies above them, and it filled the house where they were meeting. 3 Then, what looked like flames or tongues of fire appeared and settled on each of them. NLT</p>
+<p>On the Day of Pentecost, the Holy Spirit came in mighty power. The sound of a rushing mighty<br />
+wind announced to the physical and spiritual world that the Holy Spirit had arrived!<br />
+His arrival fulfilled Joel’s prophecy as well as the promise of Jesus to His disciples that He would send another Helper of the same kind as Himself.</p>
+<p>As we read on through the story, we see that the Holy Spirit filled the waiting disciples with His power. Here are the main things that happened.</p>
+<ul>
+<li>The disciples began to speak in languages which were unknown to them, but understood by the international visitors.</li>
+<li>The visitors heard the disciples speaking of the wonderful works of God in their own language.</li>
+<li>The Holy Spirit’s power was so strong that some onlookers supposed that the disciples were drunk. They were not; they were under the influence of the <b>Holy</b> Spirit.</li>
+<li>From the Day of Pentecost on, no one ever again needed to wait to receive the Holy Spirit.</li>
+<li>From now on He was available to all who believed and asked for Him.</li>
+</ul>
+<p>The people rushed together and were amazed at what they saw. They needed the</p>
+<h2 class="section-title" data-aos="fade-up">Phenomenon explained</h2>
+<p><figure class="editorial__figure" data-aos="fade-up"><img src="https://www.growingdeepandstrong.com/wp-content/uploads/2026/05/Phenomenonexplainedhighqualitycinematiclighting.webp" alt="Holy Spirit, — A new era begins" loading="lazy" /></figure>So, Peter became the spokesman for the disciples and told the crowd what was happening. He told them that they were not drunk, as the crowd supposed, but they were under the influence of the Holy Spirit who had come upon them. He mentions that what they were witnessing was the fulfilment of a prophetic word that had been spoken by Joel almost 800 years previously.</p>
+<p>In <a href="https://www.biblegateway.com/passage/?search=Acts%202%3A15-18&amp;version=KJV">Acts 2:15-18</a> we read Peter’s account.</p>
+<p><sup>15</sup> Some of you are saying these people are drunk. It isn’t true! It’s much too early for that. People don’t get drunk by nine o’clock in the morning.<br />
+<sup>16</sup> No, what you see this morning was predicted centuries ago by the prophet Joel:<br />
+<sup>17</sup> ‘In the last days, <a href="https://jesuschrist.com.au/">God</a> said, I will pour out my Spirit upon all people. Your sons and daughters will prophesy, your young men will see visions, and your old men will dream dreams.<br />
+<sup>18</sup> In those days I will pour out my Spirit upon all my servants, men and women alike, and they will prophesy. NLT</p>
+<h2 class="section-title" data-aos="fade-up">Holy Spirit Transformed Believers</h2>
+<p><figure class="editorial__figure" data-aos="fade-up"><img src="https://www.growingdeepandstrong.com/wp-content/uploads/2026/05/howdoireceivetheholyspiritscaledhighqualitycinematiclighting.webp" alt="Holy Spirit, — A new era begins" loading="lazy" /></figure>Previously, the disciples and the people who were with them were uneducated fishermen, tax collectors, cowards, and people unskilled in public speaking. But now the Holy Spirit transformed them.</p>
+<p>They became courageous men and women who spoke boldly about <a href="https://jesuschrist.com.au/">Jesus Christ</a> and particularly about His resurrection without any fear of those who might oppose them.</p>
+<p>They became channels of God’s blessings as they performed miracles, which were visible signs of God’s power. All that they did was now empowered by the Holy Spirit.</p>
+<p>Take a look at Peter. He was weak and cowardly. At the time of Jesus’ arrest and before His crucifixion, Peter denied Him three times.</p>
+<p>Now, filled with the Holy Spirit, he is completely transformed. He boldly steps forward and addresses the crowd who had heard the sound of the wind and the disciples speaking in other languages, but did not understand what was happening.</p>
+<p>As we move on to Acts 4, we continue to be impressed with the</p>
+<h2 class="section-title" data-aos="fade-up">The boldness of uneducated men</h2>
+<p>As they went into the temple, Peter and John used their new power to command a man lame from birth to rise up and walk in the name of Jesus. He was totally healed and went with them into the temple walking and leaping and praising <a href="holy-spirit-author-of-gods-word-the-bible-part-3.html">God</a>.</p>
+<p>When the people saw the man now walking, they gathered together to find out what was going on. Peter couldn’t help himself!</p>
+<p>The Holy Spirit empowered him to speak boldly about the fact that the man was healed by the name of Jesus who had risen from the dead and that they needed to repent and believe in Him too.</p>
+<p>The temple leaders were offended at this disorder in their place of worship and at the bold preaching. So, the Jewish leaders arrested Peter and John because of their bold preaching about Jesus.</p>
+<p>In <a href="https://www.biblegateway.com/passage/?search=Acts%204%3A8-13&amp;version=NIV">Acts 4:8 &amp; 13</a> we read that they appeared before the Council of the Jews to answer for what they preached.</p>
+<p><sup>8</sup>Then Peter, filled with the Holy Spirit, said to them, “Leaders and elders of our nation,</p>
+<p>……&#8230;…”</p>
+<p>and went on to explain what had happened. Then verse 13 says,</p>
+<p><sup>13</sup> The members of the council were amazed when they saw the boldness of Peter and John, for they could see that they were ordinary men who had had no special training. They also recognized them as men who had been with Jesus. NLT</p>
+<p>The Jewish Council recognized that these disciples were different. They recognised that they had been with Jesus because the Holy Spirit filled them with boldness as they opened their mouths to speak.</p>
+<p>The word <b>boldness</b> means the ability to speak with freedom, courage and assurance, which is given by the power of the Holy Spirit.</p>
+<p>The Council could only threaten them not to speak in this name of Jesus again. The man who had been miraculously healed was standing right next to them, and they couldn’t argue against what they saw for themselves.</p>
+<p>They had to let them go because they could find no charge to bring against them. Immediately Peter and John went back to the other disciples and told them what had taken place.</p>
+<p>Then they had a powerful time of prayer as</p>
+<h2 class="section-title" data-aos="fade-up">The Disciples prayed for boldness</h2>
+<p><figure class="editorial__figure" data-aos="fade-up"><img src="https://www.growingdeepandstrong.com/wp-content/uploads/2026/05/TheDisciplesprayedforboldnesshighqualitycinematiclighting.webp" alt="Holy Spirit, — A new era begins" loading="lazy" /></figure>Listen to their prayer in Acts 4:29-31.</p>
+<p><sup>29</sup> And now, O Lord, hear their threats, and give your servants great boldness in their preaching.<br />
+<sup>30</sup> Send your healing power; may miraculous signs and wonders be done through the name of your holy servant Jesus.”<br />
+<sup>31</sup> After this prayer, the building where they were meeting shook, and they were all filled with the Holy Spirit. And they preached God’s message with boldness. NLT</p>
+<p>And what incredible results came as they prayed! The whole house where they were gathered was shaken. The Holy Spirit filled them afresh and they spoke God’s message with boldness.</p>
+<p>Powerful preaching that transformed the lives of those who heard! They worked miracles, healed sick people, and the needs of the disciples were met as they lived in one accord.</p>
+<p>Whereas Jesus commanded the disciples to wait for the Holy Spirit to come in power upon them, Peter told the crowd on the Day of Pentecost that they did not need to wait to receive the gift of the Holy Spirit,</p>
+<p>because now that He had come,</p>
+<h2 class="section-title" data-aos="fade-up">Holy Spirit is available to all</h2>
+<p>who would receive Him.</p>
+<p>In <a href="https://www.biblegateway.com/passage/?search=Acts%202%3A38-39&amp;version=NIV">Acts 2:38 &amp; 39</a> we read this</p>
+<p><sup>38</sup> Peter replied, “Each of you must turn from your sins and turn to God, and be <a href="holy-spirit-baptism.html">baptized</a> in the name of Jesus Christ for the forgiveness of your sins. Then you will receive the gift of the Holy Spirit.<br />
+<sup>39</sup> This promise is to you and to your children, and even to the Gentiles—all who have been called by the Lord our God.” NLT</p>
+<p>We can apply what Jesus promised to His disciples to ourselves today.</p>
+<ul>
+<li>The Holy Spirit has come to be with us forever.</li>
+<li>He is available to all who believe and receive Jesus Christ—now!</li>
+<li>Today the Holy Spirit does not come upon a person just for a specific task, as He did in<br />
+the<a href="the-holy-spirit-activity-in-the-old-testament.html"> Old Testament.</a></li>
+<li>He remains with and in each believer forever.</li>
+<li>Peter promises that the Holy Spirit is available to whoever will repent and receive Jesus<br />
+Christ, from whatever race or culture they have come from. It makes no difference,<br />
+because God so loved the world,</li>
+</ul>
+<p>What we have just considered is great because it includes you and me! No one is excluded! Just as the Holy Spirit worked among those who believed God in Bible times, He is still just as</p>
+<p>active among us who believe today.</p>
+<p>Let’s look at the work of Holy Spirit in our lives today.</p>
+<h2 class="section-title" data-aos="fade-up">Holy Spirit came to commune with us.</h2>
+<p><a href="https://www.biblegateway.com/passage/?search=2%20Corinthians%2013%3A13&amp;version=NRSVUE">2 Corinthians 13:13</a> says,</p>
+<p>May the grace of our Lord Jesus Christ, the love of God, and the fellowship of the Holy Spirit be with you all.</p>
+<p>The Holy Spirit is the One who communicates God’s love to us, talks to us about His mind and will, and personally relates to us because He is in us.</p>
+<p>What a privilege to grow a relationship of love with the Holy Spirit! Then we can share life with Him and get to know Him personally.</p>
+<p>That makes it easy to receive His good gifts with thankfulness because He knows us so well and we know Him, too.</p>
+<h2 class="section-title" data-aos="fade-up">Holy Spirit is our Helper</h2>
+<p>In John 16:7 &amp; 13, Jesus said this to His disciples</p>
+<p><sup>7</sup> “Nevertheless I tell you the truth. It is to your advantage that I go away; for if I do not go away, the *Helper will not c o m e to you; but if I depart, I will send Him to you.<br />
+<sup>13</sup> “However, when He, the Spirit of truth, has come, He will guide you into all truth; for He will not speak on His own authority, but whatever He hears He will speak; and He will tell you things to come NKJV</p>
+<p>The following is the Strong’s explanation of the term <b>Helper</b> and an extract from the NKJV Spirit Filled Life Bible we use in our ®Growing Deep and Strong Discipleship and leadership series.</p>
+<h2 class="section-title" data-aos="fade-up">*Helper</h2>
+<p><b>helper</b>, <i>parakletos</i> (par-ak-lay-toss); Strong’s #3875: From para “beside,” and kaleo “to call,” hence, called to one’s side.<br />
+The word signifies an intercessor, comforter, helper, advocate, counselor. In nonbiblical literature, parakletos had the technical meaning of an attorney who appears in court in another’s behalf.<br />
+The Holy Spirit leads believers to a greater apprehension of gospel truths. In addition to general help and guidance, He gives the strength to endure the hostility of the world system.<br />
+In John 14:16, Jesus said</p>
+<p><sup>16</sup> “And I will pray the Father, and a He will give you <b>*another</b> Helper that He may abide with you forever.</p>
+<h2 class="section-title" data-aos="fade-up">*Another</h2>
+<p>The following is the Strong’s explanation of the term <b>Another</b> and an extract from the NKJV Spirit Filled Life Bible we use in our ®Growing Deep and Strong Discipleship and leadership series.</p>
+<p><b>another</b>, allos (al-loss); Strong’s #243: One besides, another of the s a m e kind. The word shows similarities but diversities of operation and ministries.</p>
+<p>Jesus’ use of allos for sending another Comforter equals “one besides Me and in addition to Me but one just like Me.</p>
+<p>He will do in My absence what I would do if I were physically present with you.” The Spirit’s coming assures continuity with what Jesus did and taught.</p>
+<p>Wow, how exciting is that? Jesus has given us One just like Him, to assist as we journey through our time here on earth.</p>
+<p>This 5-part series on Holy Spirit is part of The <b>Growing Deep and Strong® Series</b>, an intentional Christian discipleship and small group leadership program to help you fast track and transform the life of a new Christian.</p>
+<p>You can now start your own <a href="https://www.newchristiantraining.com/">New Christian Training Centre</a> (Micro Church) discipling new Christians with our inexpensive and easy to use, new Christian Discipleship and Small Group Leadership programs.<a href="curriculum.html">(Click Here to Review our Curriculum)</a></p>
+<p><i>“<a href="coachs-manual-discipling-others.html">The Growing Deep and Strong® Coach’s manual</a> made it easy to coach others” “it was a learning curve…. interesting to see the dynamics at work… we had a small group of people we were responsible for… we each had 3-5 people to coach… the manuals are fantastic… They outlined and gave direction on what to speak about… What questions to bring up and discuss… gave us guidelines… it gave us back up and knowledge… A lot of depth and knowledge in the scriptures… And was brought out in simplistic terms… And was really easy to teach in simplistic terms… it was great.” <b>Tammy Broadhead</b></i></p>
+<a href="shop.html"><figure class="editorial__figure" data-aos="fade-up"><img src="https://www.growingdeepandstrong.com/wp-content/uploads/2022/02/GDAS-FULL-PACK-DISCIPLES.png" alt="" loading="lazy" /></figure></a>
+
+<figure class="editorial__figure" data-aos="fade-up"><img src="https://www.growingdeepandstrong.com/wp-content/uploads/2020/05/carl.jpg" alt="Carl John Fechner" loading="lazy" /></figure><a href="#"><span>Carl John Fechner</span></a><p>Carl is a follower of <a href="https://jesuschrist.com.au/">Jesus Christ</a>; Founder and Author of the Christian Discipleship and Leadership program called the <a href="index.html">Growing Deep and Strong®</a> Series. He is also the Founder and Director of Find Your Destiny™.</p>
+<p>His mandate is to be a catalyst and facilitator in developing people who will become leaders and disciplers of others and to create an environment that creates leaders that transform nations.</p>
+            </div>
+        </article>
+
+        <section class="editorial-cta" aria-labelledby="editorial-cta-heading">
+            <div class="container container--narrow editorial-cta__inner" data-aos="zoom-in-up">
+                <p class="eyebrow eyebrow--gold">More Articles</p>
+                <h2 class="section-title section-title--center" id="editorial-cta-heading">Keep Growing Deep and Strong</h2>
+                <a href="blogs.html" class="btn btn--gold btn--lg">Read More on the Blog &rarr;</a>
+            </div>
+        </section>
+    </main>
+
+<footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-col--brand">
+                    <p class="footer-brand">Growing Deep <em>AND</em> Strong<sup>®</sup></p>
+                    <address>
+                        Bairnsdale 3875<br />
+                        Victoria, Australia<br />
+                        <a href="mailto:info@growingdeepandstrong.com">info@growingdeepandstrong.com</a>
+                    </address>
+                    <ul class="social-list" aria-label="Social media">
+                        <li><a href="#" aria-label="Facebook">Fb</a></li>
+                        <li><a href="#" aria-label="Instagram">Ig</a></li>
+                        <li><a href="#" aria-label="YouTube">Yt</a></li>
+                        <li><a href="#" aria-label="LinkedIn">In</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="disciple.html">I Want to Be a Disciple</a></li>
+                        <li><a href="coach.html">I Want to Coach Others</a></li>
+                        <li><a href="curriculum.html">Curriculum / Course Outline</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="blogs.html">Blog</a></li>
+                        <li><a href="testimonies.html">Testimonies</a></li>
+                        <li><a href="new-christian-training.html">New Christian Training Hubs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="seed-for-the-sower.html">SEED for the Sower</a></li>
+                        <li><a href="get-the-strategic-blueprint.html">Strategic Blueprint (Free)</a></li>
+                        <li><a href="endorsement.html">Endorsement</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="privacy-statement.html">Privacy Statement</a></li>
+                        <li><a href="vision-decree.html">Vision Decree</a></li>
+                        <li><a href="partners.html">Partners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-col--form">
+                    <h4>Contact Us</h4>
+                    <form class="contact-form" onsubmit="return false;">
+                        <label class="visually-hidden" for="cf-name-nctc">Name</label>
+                        <input type="text" id="cf-name-nctc" name="name" placeholder="Name" />
+                        <label class="visually-hidden" for="cf-email-nctc">Email Address</label>
+                        <input type="email" id="cf-email-nctc" name="email" placeholder="Email Address" />
+                        <label class="visually-hidden" for="cf-message-nctc">Message</label>
+                        <textarea id="cf-message-nctc" name="message" rows="4" placeholder="Message"></textarea>
+                        <label for="cf-captcha-nctc" class="captcha-label">
+                            <span>7 + 8 = ?</span>
+                            <input type="text" id="cf-captcha-nctc" name="captcha" />
+                        </label>
+                        <button type="submit" class="btn btn--primary btn--block">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Growing Deep and Strong. All Rights Reserved.</p>
+                <p>Digital Marketing Solutions by: <a href="#">Strategy Consultants Pty Ltd</a></p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ============================================================
+         JS — mobile nav toggle + AOS init (identical to disciple.html)
+         ============================================================ -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+    <script>
+        (function () {
+            var toggle = document.querySelector('.nav-toggle');
+            var nav = document.querySelector('.primary-nav');
+            if (toggle && nav) {
+                toggle.addEventListener('click', function () {
+                    var open = nav.classList.toggle('is-open');
+                    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+                });
+            }
+            var mobileBreak = 960;
+            var dropdownParents = document.querySelectorAll('.has-dropdown');
+            dropdownParents.forEach(function (li) {
+                var link = li.querySelector(':scope > a');
+                if (!link) return;
+                link.addEventListener('click', function (e) {
+                    if (window.innerWidth > mobileBreak) return;
+                    e.preventDefault();
+                    var isOpen = li.classList.toggle('is-open');
+                    link.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    dropdownParents.forEach(function (other) {
+                        if (other !== li) {
+                            other.classList.remove('is-open');
+                            var ol = other.querySelector(':scope > a');
+                            if (ol) ol.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                });
+                li.addEventListener('mouseenter', function () {
+                    if (window.innerWidth > mobileBreak) link.setAttribute('aria-expanded', 'true');
+                });
+                li.addEventListener('mouseleave', function () {
+                    if (window.innerWidth > mobileBreak) link.setAttribute('aria-expanded', 'false');
+                });
+            });
+            document.addEventListener('click', function (e) {
+                if (window.innerWidth > mobileBreak) return;
+                if (e.target.closest('.has-dropdown')) return;
+                dropdownParents.forEach(function (li) {
+                    li.classList.remove('is-open');
+                    var a = li.querySelector(':scope > a');
+                    if (a) a.setAttribute('aria-expanded', 'false');
+                });
+            });
+            function initAOS() {
+                if (typeof window.AOS === 'undefined') return setTimeout(initAOS, 50);
+                window.AOS.init({
+                    duration: 700, easing: 'ease-out-cubic', once: true, offset: 80,
+                    disable: function () {
+                        return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    }
+                });
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initAOS);
+            } else { initAOS(); }
+        })();
+    </script>
+
+</body>
+
+</html>

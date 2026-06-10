@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Church in the Whole World — Growing Deep and Strong®</title>
+    <meta name="description" content="The Church is the men and women who have been set free from the Kingdom of Darkness and transferred into the Kingdom of Light, and these people carry that ..." />
+
+    <!-- ============================================================
+         FONTS — Roboto Slab (headings) + Open Sans (body)
+                 EB Garamond + Inter retained for .brand__wordmark
+         ============================================================ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Roboto+Slab:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- AOS — Animate On Scroll -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+    <style>
+        /* --- additive helpers for cloned content pages (new pages only) --- */
+        .editorial__figure { margin: 2.4rem auto; text-align: center; }
+        .editorial__figure img { max-width: 100%; height: auto; border-radius: 6px;
+            box-shadow: 0 10px 30px rgba(10,26,38,.12); }
+        .editorial__body table { width: 100%; border-collapse: collapse; margin: 2rem 0;
+            font-family: "Open Sans", sans-serif; font-size: .95rem; }
+        .editorial__body th, .editorial__body td { border: 1px solid #e4dcca;
+            padding: .7rem .9rem; text-align: left; vertical-align: top; }
+        .editorial__body th { background: #f3ede1; font-weight: 600; }
+        .index-grid { list-style: none; margin: 2.5rem 0 0; padding: 0; display: grid;
+            gap: 1.6rem; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+        .index-card { display: flex; flex-direction: column; background: #fff;
+            border: 1px solid #ece4d4; border-radius: 8px; padding: 1.6rem 1.6rem 1.8rem;
+            box-shadow: 0 6px 20px rgba(10,26,38,.06); transition: transform .25s, box-shadow .25s; }
+        .index-card:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(10,26,38,.12); }
+        .index-card__eyebrow { font-family: "Inter", sans-serif; font-size: .72rem;
+            letter-spacing: .12em; text-transform: uppercase; color: #b8924a; margin: 0 0 .5rem; }
+        .index-card__title { font-family: "Roboto Slab", serif; font-size: 1.2rem;
+            color: #1c3a52; margin: 0 0 .6rem; line-height: 1.25; }
+        .index-card__body { font-family: "Open Sans", sans-serif; color: #4a5a66;
+            font-size: .94rem; line-height: 1.6; margin: 0 0 1.2rem; flex: 1; }
+        .index-card .btn { align-self: flex-start; margin-top: auto; }
+        .sitemap-list { list-style: none; margin: .6rem 0 2.2rem; padding: 0; columns: 2;
+            column-gap: 2.5rem; font-family: "Open Sans", sans-serif; }
+        .sitemap-list li { margin: 0 0 .55rem; break-inside: avoid; }
+        .sitemap-list a { color: #1c3a52; text-decoration: none; border-bottom: 1px solid transparent; }
+        .sitemap-list a:hover { color: #b8924a; border-bottom-color: #b8924a; }
+        @media (max-width: 640px){ .sitemap-list { columns: 1; } }
+        .contact-details { font-family: "Open Sans", sans-serif; line-height: 1.9;
+            color: #2a3b46; font-size: 1.05rem; }
+        .contact-details strong { color: #1c3a52; }
+    </style></head>
+
+<body>
+
+<header class="site-header" role="banner">
+
+        <div class="brand-strip">
+            <div class="brand-strip__inner">
+
+                <a href="index.html" class="brand">
+                    <figure class="brand__logo-figure">
+                        <img src="GDAS-Final_Australian_Landscape.jpg"
+                             alt="Growing Deep and Strong — Australian landscape brand mark"
+                             class="brand__logo-img" />
+                        <figcaption class="brand__scripture">Jer 17:7–8</figcaption>
+                    </figure>
+                    <span class="brand__wordmark">
+                        <span class="brand__name">Growing Deep <em>AND</em> Strong<sup>®</sup></span>
+                        <span class="brand__tag">Christian Discipleship</span>
+                    </span>
+                </a>
+
+                <div class="brand-strip__actions">
+                    <a href="mailto:info@growingdeepandstrong.com" class="brand-strip__contact">
+                        info@growingdeepandstrong.com
+                    </a>
+                    <a href="index.html#free-resources" class="btn btn--primary btn--sm brand-strip__cta">Free Resources</a>
+                </div>
+
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+                    <span></span><span></span><span></span>
+                </button>
+
+            </div>
+        </div>
+
+        <div class="nav-strip">
+            <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+                <ul class="primary-nav__list">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="has-dropdown">
+                        <a href="about-us.html" aria-haspopup="true" aria-expanded="false">
+                            About Us
+                            <span class="caret" aria-hidden="true"></span>
+                        </a>
+                        <ul class="dropdown" role="menu">
+                            <li role="none"><a role="menuitem" href="our-objectives.html">Our Objectives</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="new-christian-training.html" aria-haspopup="true" aria-expanded="false" aria-current="page">
+                            New Christian Training
+                            <span class="caret" aria-hidden="true"></span>
+                        </a>
+                        <ul class="dropdown" role="menu">
+                            <li role="none"><a role="menuitem" href="why-moves-of-god-succeeded-and-faded.html" aria-current="page">Why Moves of God Succeeded and Faded</a></li>
+                            <li role="none"><a role="menuitem" href="how-to-open-a-new-christian-training-center.html">How to Open a New Christian Training Center</a></li>
+                            <li role="none"><a role="menuitem" href="curriculum.html">Curriculum</a></li>
+                            <li role="none"><a role="menuitem" href="teacher-training-tutorials.html">Teacher Training Tutorials</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="coach.html" aria-haspopup="true" aria-expanded="false">
+                            Be A Coach / Coaching
+                            <span class="caret" aria-hidden="true"></span>
+                        </a>
+                        <ul class="dropdown" role="menu">
+                            <li role="none"><a role="menuitem" href="coach.html">Be A Coach Online Training</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="disciple.html">Be A Disciple / Discipleship</a></li>
+                    <li><a href="blogs.html">Blog</a></li>
+                    <li class="has-dropdown">
+                        <a href="shop.html" aria-haspopup="true" aria-expanded="false">
+                            Shop
+                            <span class="caret" aria-hidden="true"></span>
+                        </a>
+                        <ul class="dropdown" role="menu">
+                            <li role="none"><a role="menuitem" href="return-refund-policy.html">Return &amp; Refund Policy</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="testimonies.html" aria-haspopup="true" aria-expanded="false">
+                            Testimonies
+                            <span class="caret" aria-hidden="true"></span>
+                        </a>
+                        <ul class="dropdown" role="menu">
+                            <li role="none"><a role="menuitem" href="endorsement.html">Endorsement</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="free-resources.html">Free Resources</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </header>
+
+    <main id="main">
+
+        <section class="editorial-hero" aria-labelledby="editorial-hero-heading">
+            <div class="container container--narrow">
+                <p class="eyebrow eyebrow--gold" data-aos="fade-up">Blog</p>
+                <h1 class="editorial-hero__title" id="editorial-hero-heading" data-aos="fade-up">The Church in the Whole World</h1>
+            </div>
+        </section>
+
+        <article class="editorial">
+            <div class="container container--narrow editorial__body">
+<p class="editorial__lead has-dropcap" data-aos="fade-up">The <a href="https://www.gotquestions.org/what-is-the-church.html">Church</a> in the New Testament stormed the gates of hell and the Church is always presented as victorious, not even once as weak or defeated.</p>
+<p>“Thy will be done, on earth as it is in heaven” is God&#8217;s order in heaven as the standard for what to do on earth (<a href="https://www.biblegateway.com/passage/?search=Matthew+6%3A10&amp;version=KJV#:~:text=10%C2%A0Thy%20kingdom%20come%2C%20Thy%20will%20be%20done%20in%20earth%2C%20as%20it%20is%20in%20heaven."><em>Matthew 6:10</em></a>), and this command has never been rescinded.</p>
+<p>In fact, in <a href="https://en.wikipedia.org/wiki/Acts_of_the_Apostles">Acts</a>, <a href="https://kids.britannica.com/students/article/Bible/273205#:~:text=Of%20the%2027,opposition%20and%20persecution.">Epistles</a>, and in <a href="https://en.wikipedia.org/wiki/Book_of_Revelation">Revelations</a>, the Church is consistently described in relationship to cities, such as the Church at <a href="https://www.gotquestions.org/church-at-Antioch.html">Antioch</a> or <a href="https://www.gotquestions.org/church-at-Jerusalem.html">Jerusalem</a>. When I refer to the <a href="https://www.gotquestions.org/what-is-the-church.html">Church</a>, I mean the people that constitute the congregation, not a building or institution.</p>
+<p>The <a href="https://www.gotquestions.org/what-is-the-church.html">Church</a> is the men and women who have been set free from the <a href="https://www.gotquestions.org/kingdom-of-darkness.html#:~:text=the%20kingdom%20of%20darkness%20represents,in%20the%20heavenly%20places%E2%80%9D%20(NLT).">Kingdom of Darkness</a> and transferred into the <a href="https://www.gotquestions.org/transferred-into-the-kingdom-of-His-beloved-Son.html#:~:text=The%20verb%20rendered,13%2C%20NLT).">Kingdom of Light</a>, and these people carry that Kingdom with them wherever they go.</p>
+
+			<h2 class="section-title" data-aos="fade-up">Church Planting and the Bible</h2>
+<p>The disciples knew that they were to witness all over the city, and when they did, a Church was planted. They never saw themselves establishing an outpost of heaven inside a building called Church amid a city that they did not believe could be reached or transformed.</p>
+<p>To the contrary, they saw themselves infiltrating the very fiber of the city. Their model was <a href="https://www.biblegateway.com/passage/?search=Matthew+5%3A13%2C16&amp;version=NLT#:~:text=13%C2%A0%E2%80%9CYou%20are%20the%20salt%20of%20the%20earth.%20But%20what%20good%20is%20salt%20if%20it%20has%20lost%20its%20flavor%3F%20Can%20you%20make%20it%20salty%20again%3F%20It%20will%20be%20thrown%20out%20and%20trampled%20underfoot%20as%20worthless.">salt</a> and <a href="https://www.biblegateway.com/passage/?search=Matthew+5%3A13%2C16&amp;version=NLT#:~:text=16%C2%A0In%20the%20same%20way%2C%20let%20your%20good%20deeds%20shine%20out%20for%20all%20to%20see%2C%20so%20that%20everyone%20will%20praise%20your%20heavenly%20Father.">light</a>, which are the elements that touch, penetrate, and change those they came in contact with. <em>(<a href="https://www.biblegateway.com/passage/?search=Matthew+5%3A13%2C16&amp;version=NLT">Matthew 5:13,16</a>).</em></p>
+
+			<h2 class="section-title" data-aos="fade-up">Paul&#8217;s Reason for Entering the Marketplace</h2>
+<p>When <a href="https://www.gotquestions.org/life-Paul.html">Paul</a>, a rabbi, joined the <a href="https://www.gotquestions.org/what-is-the-church.html#:~:text=Many%20people%20today,body%20of%20believers.">Church or Ecclesia</a>, he naturally gravitated toward the <a href="https://www.gotquestions.org/what-is-a-synagogue.html">synagogue</a> in his initial evangelistic endeavors, making synagogue preaching his main focus.</p>
+<p>But after repeated rejection he announced that he was moving on to the Gentiles <em>(<a href="https://www.biblegateway.com/passage/?search=Acts+13%3A46&amp;version=NLT#:~:text=46%C2%A0Then%20Paul%20and%20Barnabas%20spoke%20out%20boldly%20and%20declared%2C%20%E2%80%9CIt%20was%20necessary%20that%20we%20first%20preach%20the%20word%20of%20God%20to%20you%20Jews.%20But%20since%20you%20have%20rejected%20it%20and%20judged%20yourselves%20unworthy%20of%20eternal%20life%2C%20we%20will%20offer%20it%20to%20the%20Gentiles.">Acts 13:46</a>).</em></p>
+<p>Even though Paul, upon arriving in a city, always went to a synagogue, if there was one, he began to gravitate more and more toward the <a href="https://www.gotquestions.org/what-is-a-Gentile.html#:~:text=Gentiles%20were%20often,10%3A28).">Gentiles</a>.</p>
+<p>Being rejected by the religious leaders happened so often that by the time he arrived in Corinth, <em>(<a href="https://www.biblegateway.com/passage/?search=Acts+18%3A1-9&amp;version=NLT">Acts 18:1-9</a>), </em>he deliberately exchanged the synagogue for a private home.</p>
+<p>This allowed him to teach and preach every day, instead of only on the <a href="https://www.gotquestions.org/Sabbath-day-rest.html#:~:text=the%20Sabbath%20is%20the%20seventh%20day%20of%20the%20week%2C%20on%20which%20the%20children%20of%20Israel%20were%20to%20rest%2C%20in%20remembrance%20that%20God%20created%20the%20universe%20in%20six%20days%20and%20then%20%E2%80%9Crested%E2%80%9D%20on%20the%20seventh%20day.">Sabbath</a>. Obviously, Gentiles did not meet in synagogues, they gathered in public forums, business places, and plazas, in the marketplace.</p>
+<p><a href="https://www.gotquestions.org/life-Paul.html">Paul</a>, like <a href="https://www.gotquestions.org/life-Peter.html">Peter</a>, <a href="https://www.gotquestions.org/life-John-Apostle.html">John</a>, <a href="https://www.gotquestions.org/James-son-of-Alphaeus.html">James</a>, and <a href="https://www.gotquestions.org/Philip-in-the-Bible.html">Phillip</a>, turned those public forums into places where the presence and power of God became evident to the lost in the city.</p>
+<p>In short, the Kingdom of God was manifested where everyday people gathered, just like in Jesus’ day, except that it quickly transcended the familiar territory of <a href="https://www.gotquestions.org/Judea-in-the-Bible.html">Judea</a> and <a href="https://www.gotquestions.org/Samaria-in-the-Bible.html">Samaria</a>.</p>
+<p>As the disciples moved deeper into Gentile territory, the marketplace became central to the Church’s activities, especially evangelistic endeavors.</p>
+
+			<h2 class="section-title" data-aos="fade-up">Power Encounters and Divine Intervention</h2>
+<p>The book of Acts records 40 major supernatural actions, many of which are dramatic power encounters. It is interesting that only one of them took place in a religious setting which is the healing of the lame man at the temple gate called &#8220;beautiful&#8221;. <em>(<a href="https://www.biblegateway.com/passage/?search=Acts+3%3A1-10&amp;version=NLT">Acts 3:1-10</a>).</em></p>
+<p>The other 39 divine interventions written in the book of Acts happened;</p>
+<h4>In city streets,</h4>
+<ol>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+2%3A37-41&amp;version=NLT">Acts 2:37-41</a> (The Conversion Of The 3000 Jews)</li>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+5%3A15-16%C2%A0&amp;version=NLT">Acts 5:15-16</a> (Peter&#8217;s Healing)</li>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts7%3A56%C2%A0&amp;version=NLT#:~:text=56%C2%A0And%20he%20told%20them%2C%20%E2%80%9CLook%2C%20I%20see%20the%20heavens%20opened%20and%20the%20Son%20of%20Man%20standing%20in%20the%20place%20of%20honor%20at%20God%E2%80%99s%20right%20hand!%E2%80%9D">Acts 7:56</a> (Jesus Sighting)</li>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+8%3A5-8%2C13&amp;version=NLT">Acts 8:5-8,13</a> (Healings, Casting Out Spirits, Baptism)</li>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+8%3A18-24&amp;version=NLT">Acts 8:18-24</a> (Simon&#8217;s Story)</li>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+8%3A26&amp;version=NLT#:~:text=26%C2%A0As%20for%20Philip%2C%20an%20angel%20of%20the%20Lord%20said%20to%20him%2C%20%E2%80%9CGo%20south%5Ba%5D%20down%20the%20desert%20road%20that%20runs%20from%20Jerusalem%20to%20Gaza.%E2%80%9D">Acts 8:26 </a> (Philip and the Ethiopian Eunuch)</li>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+9%3A32-35&amp;version=NLT#:~:text=32%C2%A0Meanwhile,to%20the%20Lord.">Acts 9:32-35</a>  (Peter Heals Aeneas and Raises Dorcas)</li>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+13%3A6-12&amp;version=NLT#:~:text=6%C2%A0Afterward,about%20the%20Lord.">Acts 13:6-12 </a> (Blinding of Elymas)</li>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+13%3A48-50&amp;version=NLT">Acts 13:48-50</a>  (Appointed to Eternal Life)</li>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+14%3A1-5&amp;version=NLT">Acts 14:1-5</a> (Paul and Barnabas in Iconium)</li>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+14%3A8-11&amp;version=NLT">Acts 14:8-11</a> (Healing of Man with Crippled Feet)</li>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+17%3A5-9&amp;version=NLT">Acts 17:5-9</a> (Assault on Jason&#8217;s House)</li>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+19%3A11-13&amp;version=NLT">Acts 19:11-13</a>  (Paul&#8217;s Extraordinary Deeds in Ephesus)</li>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+19%3A17&amp;version=NLT">Acts 19:17</a> (Spreading Stories about God&#8217;s Work)</li>
+</ol>
+<h4>In the public square,</h4>
+<ol>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts%205%3A12-16&amp;version=NIV">Acts 5:12-16 </a>(The Apostles Healed Many)</li>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+16%3A16-18&amp;version=NIV">Acts 16:16-18 </a>(Casting Out a Spirit)</li>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+17%3A17&amp;version=NIV">Acts 17:17 </a>(Speaking in Public Square)</li>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+19%3A18-20&amp;version=NLT">Acts 19:18-20</a> (Paul Ministers in Ephesus)</li>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+19%3A23-41&amp;version=NLT">Acts 19:23-41</a> (The Riot in Ephesus)</li>
+</ol>
+
+			<h4>Believer&#8217;s gathering,</h4>
+<ol>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+4%3A31-31&amp;version=NLT">Acts 4:31-31 </a>(The Believers Share Their Possessions)</li>
+</ol>
+<h4>In a prison,</h4>
+<ol>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+5%3A19&amp;version=NLT#:~:text=19%C2%A0But%20an%20angel%20of%20the%20Lord%20came%20at%20night%2C%20opened%20the%20gates%20of%20the%20jail%2C%20and%20brought%20them%20out.%20Then%20he%20told%20them%2C">Acts 5:19</a> (The Apostles Meet Opposition)</li>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+12%3A1-19&amp;version=NLT">Acts 12:1-19</a> (Peter’s Miraculous Escape from Prison)</li>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+16%3A26&amp;version=NLT">Acts 16:26</a> (Earthquake in Prison)</li>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+23%3A11&amp;version=NLT#:~:text=11%C2%A0That%20night%20the%20Lord%20appeared%20to%20Paul%20and%20said%2C%20%E2%80%9CBe%20encouraged%2C%20Paul.%20Just%20as%20you%20have%20been%20a%20witness%20to%20me%20here%20in%20Jerusalem%2C%20you%20must%20preach%20the%20Good%20News%20in%20Rome%20as%20well.%E2%80%9D">Acts 23:11</a> (Lord Appeared to Paul)</li>
+</ol>
+<h4>In a home,</h4>
+<ol>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+9%3A10-16&amp;version=NLT">Acts 9:10-16</a> (Saul’s Conversion)</li>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+9%3A18&amp;version=NLT#:~:text=18%C2%A0Instantly%20something%20like%20scales%20fell%20from%20Saul%E2%80%99s%20eyes%2C%20and%20he%20regained%20his%20sight.%20Then%20he%20got%20up%20and%20was%20baptized.">Acts 9:18</a> (Saul is Baptized)</li>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+9%3A40-43&amp;version=NLT">Acts 9:40-43</a> (Paul Raises Dorcas)</li>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+10%3A1-6&amp;version=NLT">Acts 10:1-6</a> (Cornelius Calls for Peter)</li>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+10%3A9-16&amp;version=NLT">Acts 10:9-16</a> (Peter Visits Cornelius)</li>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+16%3A9-10&amp;version=NLT#:~:text=9%C2%A0That%20night%20Paul%20had%20a%20vision%3A%20A%20man%20from%20Macedonia%20in%20northern%20Greece%20was%20standing%20there%2C%20pleading%20with%20him%2C%20%E2%80%9CCome%20over%20to%20Macedonia%20and%20help%20us!%E2%80%9D%2010%C2%A0So%20we%5Ba%5D%20decided%20to%20leave%20for%20Macedonia%20at%20once%2C%20having%20concluded%20that%20God%20was%20calling%20us%20to%20preach%20the%20Good%20News%20there.">Acts 16:9-10</a> (A Call from Macedonia)</li>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+20%3A6-12&amp;version=NLT">Acts 20:6-12</a> (Paul’s Final Visit to Troas)</li>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+28%3A8-10&amp;version=NLT">Acts 28:8-10</a> (Publius’s Father and Others are Healed)</li>
+</ol>
+<h4>On a desert road,</h4>
+<ol>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+8%3A39&amp;version=NLT">Acts 8:39</a> (Philip and the Ethiopian Eunuch)</li>
+</ol>
+<h4>On the Damascus road,</h4>
+<ol>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+9%3A1-9&amp;version=NLT">Acts 9:1-9</a> (Saul’s Conversion)</li>
+</ol>
+
+			<h4>In a Gentile home,</h4>
+<ol>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+10%3A44-48&amp;version=NLT">Acts 10:44-48</a> (The Gentiles Receive the Holy Spirit)</li>
+</ol>
+<h4>In a palace,</h4>
+<ol>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+12%3A23&amp;version=NLT#:~:text=23%C2%A0Instantly%2C%20an%20angel%20of%20the%20Lord%20struck%20Herod%20with%20a%20sickness%2C%20because%20he%20accepted%20the%20people%E2%80%99s%20worship%20instead%20of%20giving%20the%20glory%20to%20God.%20So%20he%20was%20consumed%20with%20worms%20and%20died.">Acts 12:23</a> (Lord Struck Herod with a Sickness)</li>
+</ol>
+<h4>In a lecture hall,</h4>
+<ol>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+19%3A10&amp;version=NLT">Acts 19:10</a> (Paul Ministers in Ephesus)</li>
+</ol>
+<h4>On a ship,</h4>
+<ol>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+27%3A23-26&amp;version=NLT">Acts 27:23-26</a> (The Storm at Sea)</li>
+</ol>
+<h4>On a beach</h4>
+<ol>
+<li><a href="https://www.biblegateway.com/passage/?search=Acts+28%3A1-5&amp;version=NLT">Acts 28:1-5</a> (Paul on the Island of Malta)</li>
+</ol>
+<p>This highlights the fact that the early Church was not confined to a building or to a prearranged schedule of meetings.</p>
+<p>In Acts, the Church was a movement that shook or took cities.</p>
+
+			<h2 class="section-title" data-aos="fade-up">Make your workplace your pulpit.</h2>
+<p>We should expect God to show up in the marketplace, that is why it’s important to understand that your workplace should be your pulpit and your circle of influence your congregation.</p>
+<p>Then recognize that God has appointed you and anointed you to bring His Kingdom into your workplace.</p>
+<p>The notion that the marketplace is less spiritual than a Church is false.</p>
+<p><em>This article is an extract from the book written by <a href="https://en.wikipedia.org/wiki/Ed_Silvoso">Ed Silvoso</a>, called <a href="https://www.amazon.com/Anointed-Business-Ed-Silvoso/dp/0800797140">“Anointed For Business</a>” (pg. 101 – 102).</em></p>
+<p><em>This is a book I recommend every Christian working in the marketplace or owning a business should read. </em></p>
+<p><em>It delves into how the Early Church impacted society, transformed cities, and expanded their sphere of influence.</em></p>
+
+<figure class="editorial__figure" data-aos="fade-up"><img src="https://www.growingdeepandstrong.com/wp-content/uploads/2020/05/carl.jpg" alt="Carl John Fechner" loading="lazy" /></figure><a href="#"><span>Carl John Fechner</span></a><p>Carl is a follower of <a href="https://jesuschrist.com.au/">Jesus Christ</a>; Founder and Author of the Christian Discipleship and Leadership program called the <a href="index.html">Growing Deep and Strong®</a> Series. He is also the Founder and Director of Find Your Destiny™.</p>
+<p>His mandate is to be a catalyst and facilitator in developing people who will become leaders and disciplers of others and to create an environment that creates leaders that transform nations.</p>
+            </div>
+        </article>
+
+        <section class="editorial-cta" aria-labelledby="editorial-cta-heading">
+            <div class="container container--narrow editorial-cta__inner" data-aos="zoom-in-up">
+                <p class="eyebrow eyebrow--gold">More Articles</p>
+                <h2 class="section-title section-title--center" id="editorial-cta-heading">Keep Growing Deep and Strong</h2>
+                <a href="blogs.html" class="btn btn--gold btn--lg">Read More on the Blog &rarr;</a>
+            </div>
+        </section>
+    </main>
+
+<footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-col--brand">
+                    <p class="footer-brand">Growing Deep <em>AND</em> Strong<sup>®</sup></p>
+                    <address>
+                        Bairnsdale 3875<br />
+                        Victoria, Australia<br />
+                        <a href="mailto:info@growingdeepandstrong.com">info@growingdeepandstrong.com</a>
+                    </address>
+                    <ul class="social-list" aria-label="Social media">
+                        <li><a href="#" aria-label="Facebook">Fb</a></li>
+                        <li><a href="#" aria-label="Instagram">Ig</a></li>
+                        <li><a href="#" aria-label="YouTube">Yt</a></li>
+                        <li><a href="#" aria-label="LinkedIn">In</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="disciple.html">I Want to Be a Disciple</a></li>
+                        <li><a href="coach.html">I Want to Coach Others</a></li>
+                        <li><a href="curriculum.html">Curriculum / Course Outline</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="blogs.html">Blog</a></li>
+                        <li><a href="testimonies.html">Testimonies</a></li>
+                        <li><a href="new-christian-training.html">New Christian Training Hubs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="seed-for-the-sower.html">SEED for the Sower</a></li>
+                        <li><a href="get-the-strategic-blueprint.html">Strategic Blueprint (Free)</a></li>
+                        <li><a href="endorsement.html">Endorsement</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="privacy-statement.html">Privacy Statement</a></li>
+                        <li><a href="vision-decree.html">Vision Decree</a></li>
+                        <li><a href="partners.html">Partners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-col--form">
+                    <h4>Contact Us</h4>
+                    <form class="contact-form" onsubmit="return false;">
+                        <label class="visually-hidden" for="cf-name-nctc">Name</label>
+                        <input type="text" id="cf-name-nctc" name="name" placeholder="Name" />
+                        <label class="visually-hidden" for="cf-email-nctc">Email Address</label>
+                        <input type="email" id="cf-email-nctc" name="email" placeholder="Email Address" />
+                        <label class="visually-hidden" for="cf-message-nctc">Message</label>
+                        <textarea id="cf-message-nctc" name="message" rows="4" placeholder="Message"></textarea>
+                        <label for="cf-captcha-nctc" class="captcha-label">
+                            <span>7 + 8 = ?</span>
+                            <input type="text" id="cf-captcha-nctc" name="captcha" />
+                        </label>
+                        <button type="submit" class="btn btn--primary btn--block">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Growing Deep and Strong. All Rights Reserved.</p>
+                <p>Digital Marketing Solutions by: <a href="#">Strategy Consultants Pty Ltd</a></p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ============================================================
+         JS — mobile nav toggle + AOS init (identical to disciple.html)
+         ============================================================ -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+    <script>
+        (function () {
+            var toggle = document.querySelector('.nav-toggle');
+            var nav = document.querySelector('.primary-nav');
+            if (toggle && nav) {
+                toggle.addEventListener('click', function () {
+                    var open = nav.classList.toggle('is-open');
+                    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+                });
+            }
+            var mobileBreak = 960;
+            var dropdownParents = document.querySelectorAll('.has-dropdown');
+            dropdownParents.forEach(function (li) {
+                var link = li.querySelector(':scope > a');
+                if (!link) return;
+                link.addEventListener('click', function (e) {
+                    if (window.innerWidth > mobileBreak) return;
+                    e.preventDefault();
+                    var isOpen = li.classList.toggle('is-open');
+                    link.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    dropdownParents.forEach(function (other) {
+                        if (other !== li) {
+                            other.classList.remove('is-open');
+                            var ol = other.querySelector(':scope > a');
+                            if (ol) ol.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                });
+                li.addEventListener('mouseenter', function () {
+                    if (window.innerWidth > mobileBreak) link.setAttribute('aria-expanded', 'true');
+                });
+                li.addEventListener('mouseleave', function () {
+                    if (window.innerWidth > mobileBreak) link.setAttribute('aria-expanded', 'false');
+                });
+            });
+            document.addEventListener('click', function (e) {
+                if (window.innerWidth > mobileBreak) return;
+                if (e.target.closest('.has-dropdown')) return;
+                dropdownParents.forEach(function (li) {
+                    li.classList.remove('is-open');
+                    var a = li.querySelector(':scope > a');
+                    if (a) a.setAttribute('aria-expanded', 'false');
+                });
+            });
+            function initAOS() {
+                if (typeof window.AOS === 'undefined') return setTimeout(initAOS, 50);
+                window.AOS.init({
+                    duration: 700, easing: 'ease-out-cubic', once: true, offset: 80,
+                    disable: function () {
+                        return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    }
+                });
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initAOS);
+            } else { initAOS(); }
+        })();
+    </script>
+
+</body>
+
+</html>
