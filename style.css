@@ -389,6 +389,7 @@ h6 {
 .brand__wordmark {
     display: flex;
     flex-direction: column;
+    align-items: center;
     line-height: 1.1;
     min-width: 0;
 }
