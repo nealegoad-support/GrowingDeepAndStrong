@@ -656,13 +656,13 @@ h6 {
 */
 @media (max-width: 600px) {
     .brand-hero__image-wrap {
-        aspect-ratio: 3 / 4;
+        /* Mobile Version.png is 1080×1920 — show at natural portrait ratio */
+        aspect-ratio: 9 / 16;
         max-height: none;
     }
 
     .brand-hero__img {
-        /* Rock at ~1/3 down; water mass extends downward below rock */
-        object-position: center 20%;
+        object-position: center center;
     }
 }
 
@@ -5171,15 +5171,42 @@ h1#editorial-hero-heading {
 }
 
 .nctc-blueprint__scripture p {
-<<<<<<< HEAD
-    margin: 0;         
-    font-family: 'EB Garamond', Georgia, serif;
-=======
     margin: 0;
     font-family: var(--font-display);
->>>>>>> 7976dc7 (New Website Changes)
     font-style: italic;
     font-size: 1.08rem;
     line-height: 1.6;
     color: var(--color-ink, #14110d);
+}
+
+/* ==========================================================================
+   MOBILE HERO — reduce clutter (max-width: 600px)
+   Compresses hero image, tightens spacing, hides the transform-path
+   acronym block so CTAs appear within the first 900px of scroll.
+   ========================================================================== */
+@media (max-width: 600px) {
+
+  /* 1. Mobile hero — dedicated portrait image (Mobile Version.png, 9:16)
+        fills the image-wrap at natural ratio; no max-height override needed. */
+
+  /* 2. Tighten spacing between nctc-vision elements */
+  .nctc-vision__eyebrow  { margin-bottom: 12px; }
+  .nctc-vision__headline { margin-bottom: 16px; font-size: 1.9rem; }
+  .nctc-vision__mandate  { margin-bottom: 20px; }
+  .nctc-vision__body     { margin-bottom: 24px; }
+
+  /* 3. Hide the transform-path acronym block on mobile */
+  .nctc-vision__transform { display: none; }
+
+  /* 4. Reduce CTA card height on mobile */
+  .hero-split--inline .hero-split__card { min-height: 340px; }
+
+  /* 5. Reduce hero-split header padding */
+  .hero-split__header {
+    padding-top: 28px;
+    padding-bottom: 24px;
+  }
+
+  /* 6. Tighten opt-in form padding */
+  .nctc-optin { padding: var(--space-8) var(--space-6); }
 }
