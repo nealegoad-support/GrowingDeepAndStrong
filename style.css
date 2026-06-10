@@ -1338,6 +1338,13 @@ h6 {
     border-left: 1px solid rgba(255, 255, 255, 0.06);
 }
 
+.hero-split__card--download {
+    background:
+        radial-gradient(ellipse at 50% 110%, rgba(184, 146, 74, 0.42), transparent 55%),
+        linear-gradient(155deg, #1c3040 0%, #090f1a 100%);
+    border-left: 1px solid rgba(255, 255, 255, 0.06);
+}
+
 /* Gold accent line that grows on hover */
 .hero-split__card::before {
     content: "";
