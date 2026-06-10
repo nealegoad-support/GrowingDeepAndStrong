@@ -166,6 +166,55 @@
         </section>
 
         <!-- ============================================================
+             BLUEPRINT OPT-IN SIDEBAR — Strategic Blueprint free download
+             Carl 01:06:26: "when they go on to Coach Others, that's where
+             they can get the Strategic Blueprint… sit it on the side"
+             ACF: reuses "NCTC Optin" sidebar block from index.html
+             ============================================================ -->
+        <section class="coach-aside-layout" aria-label="Coach introduction and Strategic Blueprint download">
+            <div class="container">
+                <div class="coach-aside-layout__grid">
+
+                    <div class="coach-aside-layout__main">
+                        <p class="eyebrow">Your Coaching Toolkit</p>
+                        <h2 class="section-title">Everything You Need to Start Coaching</h2>
+                        <p class="lede">
+                            The Growing Deep and Strong® Strategic Blueprint is your roadmap to opening
+                            a New Christian Training Centre and multiplying disciples. Download it free
+                            and see how 35,000 hours of curriculum development has been packaged into
+                            a simple, ready-to-deploy system.
+                        </p>
+                        <p>
+                            Whether you are exploring the idea of coaching or ready to launch,
+                            the Blueprint will walk you through the vision, the structure, and the
+                            pathway from discipleship to multiplication.
+                        </p>
+                    </div>
+
+                    <!-- Right sidebar: MailChimp opt-in — identical to index.html -->
+                    <aside class="nctc-optin" aria-label="Free download — Strategic Blueprint">
+                        <p class="eyebrow eyebrow--gold">Free Download</p>
+                        <h3 class="nctc-optin__title">New Christian Training Centre Strategic Blueprint</h3>
+                        <p class="nctc-optin__sub">
+                            Discover the pathway from discipleship to multiplication —
+                            delivered straight to your inbox.
+                        </p>
+                        <form class="nctc-optin__form" onsubmit="return false;">
+                            <label class="visually-hidden" for="coach-optin-name">Your Name</label>
+                            <input type="text" id="coach-optin-name" name="name" placeholder="Your Name" autocomplete="name" />
+                            <label class="visually-hidden" for="coach-optin-email">Email Address</label>
+                            <input type="email" id="coach-optin-email" name="email" placeholder="Email Address"
+                                autocomplete="email" required />
+                            <button type="submit" class="btn btn--gold btn--block">Send Me the Blueprint</button>
+                        </form>
+                        <p class="nctc-optin__disclaimer">No spam. Unsubscribe any time.</p>
+                    </aside>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
              COACH'S MANDATE — Permission slip for ordinary believers
              ACF: "Coach Mandate" block
              Fields: eyebrow | heading | lede | body_paragraphs (repeater) |

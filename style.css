@@ -1253,6 +1253,35 @@ h6 {
     letter-spacing: 0.04em;
 }
 
+/* ---- Coach aside layout — Blueprint opt-in sidebar on coach.html ------- */
+.coach-aside-layout {
+    background: var(--color-paper);
+    padding: var(--space-16) 0 var(--space-12);
+}
+
+.coach-aside-layout__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+    align-items: start;
+}
+
+@media (min-width: 960px) {
+    .coach-aside-layout__grid {
+        grid-template-columns: 1fr 360px;
+        gap: var(--space-12);
+    }
+
+    .coach-aside-layout .nctc-optin {
+        position: sticky;
+        top: 96px;
+    }
+}
+
+.coach-aside-layout__main .lede {
+    margin-bottom: var(--space-6);
+}
+
 
 /* ---- Journey split inline modifier ------------------------------------ */
 /* White background, cards are contained boxes with gaps — not full-bleed panels */
