@@ -587,10 +587,11 @@ h6 {
     line-height: 0;
 }
 
-/* ---- Hero carousel ---------------------------------------------------------
-   The hero is now a fading image slider. The viewport keeps a fixed 3:2 ratio
-   (matching the 1536×1024 slides) so there is no layout shift while images
-   load, and each slide covers the area cleanly. */
+/* ---- Hero with rotating messages ------------------------------------------
+   One shared landscape background; only the text cross-fades. The viewport
+   keeps a fixed 3:2 ratio (1536×1024) so there is no layout shift, and the
+   image covers the area cleanly. The hero reads as one cohesive area rather
+   than a promotional carousel. */
 .hero-slider {
     position: relative;
     width: 100%;
@@ -607,40 +608,96 @@ h6 {
     /* allow vertical page scroll while we handle horizontal swipes */
 }
 
-.hero-slider__track {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-
-/* Slides are stacked; only the active one is visible and interactive.
-   visibility:hidden keeps inactive slides out of the tab/AT order. */
-.hero-slider__slide {
+/* Single, never-changing background image */
+.hero-slider__bg {
     position: absolute;
     inset: 0;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.8s var(--ease), visibility 0s linear 0.8s;
-}
-
-.hero-slider__slide.is-active {
-    opacity: 1;
-    visibility: visible;
-    z-index: 1;
-    transition: opacity 0.8s var(--ease);
-}
-
-.hero-slider__img {
     width: 100%;
     height: 100%;
     display: block;
     object-fit: cover;
-    /* baked-in headlines sit near the top — crop the water reflection first */
     object-position: center top;
 }
 
-/* ---- Arrows ---- */
+/* Gentle top-down scrim so gold text stays readable over the bright sky,
+   while leaving the rock and reflection clear. */
+.hero-slider__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(to bottom,
+            rgba(10, 26, 38, 0.62) 0%,
+            rgba(10, 26, 38, 0.32) 30%,
+            rgba(10, 26, 38, 0.05) 52%,
+            rgba(10, 26, 38, 0) 65%);
+}
+
+/* Message stack — every message shares the same position, width and alignment,
+   so the layout never shifts as the text rotates. */
+.hero-slider__messages {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.hero-message {
+    position: absolute;
+    top: 9%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(90%, 56ch);
+    text-align: center;
+    /* Pure opacity cross-fade — no movement, almost invisible. */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.9s var(--ease), visibility 0s linear 0.9s;
+}
+
+.hero-message.is-active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.9s var(--ease);
+}
+
+.hero-message__title {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    font-size: clamp(1.35rem, 0.85rem + 2.6vw, 3rem);
+    line-height: 1.12;
+    color: var(--color-gold-soft);
+    margin: 0;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    text-wrap: balance;
+}
+
+/* Static gold rule between title and subtitle — a quiet brand flourish */
+.hero-message__title::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 2px;
+    margin: var(--space-4) auto;
+    background: var(--color-gold);
+}
+
+.hero-message__sub {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(0.95rem, 0.85rem + 0.7vw, 1.35rem);
+    line-height: 1.5;
+    color: var(--color-gold-tint);
+    margin: 0;
+    text-shadow: 0 1px 14px rgba(0, 0, 0, 0.6);
+    text-wrap: pretty;
+}
+
+/* ---- Arrows: quiet by default; reveal on hover (desktop) so the hero does
+        not read as a promotional banner. Always shown on touch + keyboard. ---- */
 .hero-slider__arrow {
     position: absolute;
     top: 50%;
@@ -649,17 +706,17 @@ h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 48px;
-    height: 48px;
+    width: 46px;
+    height: 46px;
     padding: 0;
     border: none;
     border-radius: 50%;
-    background: rgba(10, 26, 38, 0.45);
+    background: rgba(10, 26, 38, 0.4);
     color: #fff;
-    font-size: 1.9rem;
+    font-size: 1.8rem;
     line-height: 1;
     cursor: pointer;
-    transition: background 0.2s var(--ease), opacity 0.2s var(--ease);
+    transition: background 0.25s var(--ease), opacity 0.25s var(--ease);
 }
 
 .hero-slider__arrow:hover,
@@ -675,6 +732,17 @@ h6 {
     right: var(--space-4);
 }
 
+@media (hover: hover) {
+    .hero-slider__arrow {
+        opacity: 0;
+    }
+
+    .hero-slider:hover .hero-slider__arrow,
+    .hero-slider__arrow:focus-visible {
+        opacity: 1;
+    }
+}
+
 /* ---- Pagination dots ---- */
 .hero-slider__dots {
     position: absolute;
@@ -688,24 +756,23 @@ h6 {
 }
 
 .hero-slider__dot {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     padding: 0;
-    border: 2px solid rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.9);
     border-radius: 50%;
-    background: transparent;
+    background: rgba(255, 255, 255, 0.25);
     cursor: pointer;
-    transition: background 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.2s var(--ease);
+    transition: background 0.25s var(--ease), border-color 0.25s var(--ease);
 }
 
 .hero-slider__dot:hover {
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.6);
 }
 
 .hero-slider__dot.is-active {
     background: var(--color-gold);
     border-color: var(--color-gold);
-    transform: scale(1.1);
 }
 
 /* Visible focus ring for keyboard users */
@@ -717,17 +784,25 @@ h6 {
 
 @media (max-width: 600px) {
     .hero-slider__arrow {
-        width: 38px;
-        height: 38px;
-        font-size: 1.5rem;
+        width: 36px;
+        height: 36px;
+        font-size: 1.4rem;
     }
 
     .hero-slider__dots {
         bottom: var(--space-3);
     }
+
+    .hero-message {
+        top: 7%;
+    }
+
+    .hero-message__title::after {
+        margin: var(--space-3) auto;
+    }
 }
 
-/* On phones, let the full slide show without a vertical clamp. */
+/* On phones, let the full hero show without a vertical clamp. */
 @media (max-width: 767px) {
     .hero-slider__viewport {
         max-height: none;
@@ -737,8 +812,8 @@ h6 {
 /* Respect reduced-motion: no cross-fade animation (JS also disables autoplay). */
 @media (prefers-reduced-motion: reduce) {
 
-    .hero-slider__slide,
-    .hero-slider__slide.is-active {
+    .hero-message,
+    .hero-message.is-active {
         transition: none;
     }
 }
