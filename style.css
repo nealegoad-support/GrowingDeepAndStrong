@@ -641,6 +641,44 @@ h6 {
     object-position: center top;
 }
 
+/* ---- Composed slide captions (disciple slides) -------------------------
+   Live text over the clean landscape, styled to match the baked slides:
+   bright gold serif title near the top of the sky, italic sub beneath. */
+.hero-slider__caption {
+    position: absolute;
+    top: 7%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(92%, 58ch);
+    text-align: center;
+    z-index: 2;
+}
+
+.hero-slider__caption-title {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    font-size: clamp(1.3rem, 0.8rem + 2.7vw, 3.1rem);
+    line-height: 1.12;
+    color: #f0d96b;
+    /* matches the baked slides' yellow-gold headlines */
+    margin: 0;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55);
+    text-wrap: balance;
+}
+
+.hero-slider__caption-sub {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(0.9rem, 0.8rem + 0.8vw, 1.45rem);
+    line-height: 1.45;
+    color: #f3e9b8;
+    margin: var(--space-3) 0 0;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.6);
+    text-wrap: pretty;
+}
+
 /* ---- Arrows: quiet by default; reveal on hover (desktop) so the hero does
         not read as a promotional banner. Always shown on touch + keyboard. ---- */
 .hero-slider__arrow {
@@ -1411,7 +1449,7 @@ h6 {
 
 /* Cards become rounded boxes — not flush panels */
 .hero-split--inline .hero-split__card {
-    min-height: 460px;
+    min-height: 360px;
     border-radius: var(--radius-lg);
     border-top: none;
     box-shadow: var(--shadow-lg);
@@ -1440,12 +1478,31 @@ h6 {
 
 .hero-split__heading {
     font-family: var(--font-display);
-    font-size: clamp(1.8rem, 1.2rem + 3vw, 3.2rem);
+    /* Dramatically reduced per client feedback — was clamp(… 3.2rem) and
+       "jumping out at you on the page". */
+    font-size: clamp(1.25rem, 1rem + 1.2vw, 1.8rem);
     font-weight: 500;
     color: var(--color-paper);
     text-transform: uppercase;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.04em;
     margin: 0;
+}
+
+/* Conversational sub-line beneath the journey heading */
+.hero-split__sub {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+    /* on the dark base section */
+    max-width: 52ch;
+    margin: var(--space-4) auto 0;
+    text-wrap: pretty;
+}
+
+/* Inline modifier sits on white paper — switch to ink */
+.hero-split--inline .hero-split__sub {
+    color: var(--color-ink-soft);
 }
 
 /* Two-panel split grid */
@@ -1467,7 +1524,7 @@ h6 {
     text-decoration: none;
     position: relative;
     overflow: hidden;
-    min-height: 540px;
+    min-height: 420px;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
     transition: filter 0.35s var(--ease);
 }
@@ -1524,16 +1581,16 @@ h6 {
     transform: translateY(-3px);
 }
 
-/* Large italic numeral */
+/* Italic numeral — reduced from 4rem per client font feedback */
 .hero-split__num {
     font-family: var(--font-display);
     font-style: italic;
-    font-size: 4rem;
+    font-size: 2.4rem;
     font-weight: 500;
     color: rgba(184, 146, 74, 0.3);
     line-height: 1;
     display: block;
-    margin-bottom: calc(-1 * var(--space-3));
+    margin-bottom: calc(-1 * var(--space-2));
 }
 
 .hero-split__kicker {
@@ -1548,12 +1605,13 @@ h6 {
 
 .hero-split__card-title {
     font-family: var(--font-display);
-    font-size: clamp(2rem, 1.4rem + 2.5vw, 3.2rem);
+    /* Dramatically reduced per client feedback — was clamp(… 3.2rem). */
+    font-size: clamp(1.25rem, 1.05rem + 1vw, 1.7rem);
     font-weight: 500;
     color: var(--color-paper);
     text-transform: uppercase;
-    letter-spacing: 0.02em;
-    line-height: 1.05;
+    letter-spacing: 0.03em;
+    line-height: 1.2;
     margin: 0;
 }
 
@@ -1602,7 +1660,7 @@ h6 {
 
 @media (max-width: 799px) {
     .hero-split__card {
-        min-height: 480px;
+        min-height: 380px;
     }
 
     .hero-split__card-body {
@@ -1621,7 +1679,148 @@ h6 {
     }
 
     .hero-split__num {
-        font-size: 3rem;
+        font-size: 2rem;
+    }
+}
+
+
+/* --------------------------------------------------------------------------
+   10b. SEE INSIDE THE MATERIALS — real sample pages, disciple vs coach
+   -------------------------------------------------------------------------- */
+.section--samples {
+    background: var(--color-cream);
+}
+
+.samples__header {
+    text-align: center;
+    max-width: 64ch;
+    margin: 0 auto var(--space-12);
+}
+
+/* Keep this heading at the calmer scale the client asked for */
+.samples__header .section-title {
+    font-size: clamp(1.4rem, 1.1rem + 1.4vw, 2rem);
+}
+
+.samples__lede {
+    font-family: var(--font-body);
+    font-size: 1.02rem;
+    line-height: 1.7;
+    color: var(--color-ink-soft);
+    margin: var(--space-4) auto 0;
+    text-wrap: pretty;
+}
+
+.samples__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+@media (min-width: 800px) {
+    .samples__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Whole card is a click-through link to the relevant pathway page */
+.sample-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    background: var(--color-paper);
+    border: 1px solid var(--color-rule);
+    border-top: 3px solid var(--color-gold);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8) var(--space-6);
+    text-decoration: none;
+    color: inherit;
+    box-shadow: var(--shadow-lg);
+    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.sample-card:hover {
+    transform: translateY(-4px);
+}
+
+.sample-card__kicker {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin: 0;
+}
+
+.sample-card__title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--color-navy);
+    margin: 0;
+    text-wrap: balance;
+}
+
+/* Two real manual pages side by side, like sheets on a desk */
+.sample-card__pages {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+}
+
+.sample-card__pages img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 4px 14px rgba(31, 42, 51, 0.12);
+}
+
+.sample-card__quote {
+    margin: 0;
+    padding: var(--space-2) 0 var(--space-2) var(--space-5);
+    border-left: 3px solid var(--color-gold);
+}
+
+.sample-card__quote p {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 0.98rem;
+    line-height: 1.55;
+    color: var(--color-ink-soft);
+    margin: 0 0 var(--space-2);
+}
+
+.sample-card__quote cite {
+    font-family: var(--font-body);
+    font-style: normal;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ink-mute);
+}
+
+.sample-card__cta {
+    margin-top: auto;
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    transition: color 0.2s var(--ease);
+}
+
+.sample-card:hover .sample-card__cta {
+    color: var(--color-navy);
+}
+
+@media (max-width: 480px) {
+    .sample-card {
+        padding: var(--space-6) var(--space-4);
     }
 }
 
@@ -5397,4 +5596,347 @@ h1#editorial-hero-heading {
     .nctc-vision .nctc-vision__inner {
         order: 0;
     }
+}
+
+/* ==========================================================================
+   SUB-PAGE DRILL-DOWN COMPONENTS — /disciple + /coach (June 2026)
+   Page-scan galleries, lightbox modal, testimony bands, FAQ accordion,
+   product "what you receive" layouts.
+   ========================================================================== */
+
+/* ---- Page-scan gallery grid ------------------------------------------- */
+.pagegrid {
+    display: grid;
+    /* 150px min keeps two thumbnails per row on phones — the lightbox does
+       the reading; the grid only needs to invite the tap. */
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+    gap: var(--space-5);
+    margin: var(--space-10) 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+@media (max-width: 480px) {
+    .pagegrid {
+        gap: var(--space-3);
+    }
+}
+
+.pagegrid--wide {
+    max-width: 880px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pagegrid__item {
+    margin: 0;
+    text-align: center;
+}
+
+/* The whole thumbnail is a zoom button */
+.pagegrid__zoom {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: zoom-in;
+    border-radius: var(--radius-sm);
+    transition: transform 0.2s var(--ease);
+}
+
+.pagegrid__zoom:hover {
+    transform: translateY(-3px);
+}
+
+.pagegrid__zoom:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+}
+
+.pagegrid__zoom img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 4px 14px rgba(31, 42, 51, 0.12);
+}
+
+.pagegrid__caption {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    color: var(--color-ink-mute);
+    margin-top: var(--space-2);
+    line-height: 1.4;
+}
+
+/* Small "click to read" hint under section intros */
+.zoom-hint {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--color-ink-mute);
+    text-align: center;
+    margin: var(--space-3) 0 0;
+}
+
+.zoom-hint::before {
+    content: "\1F50D  ";
+    /* magnifier */
+}
+
+/* ---- Lightbox (native <dialog>) ---------------------------------------- */
+.lightbox {
+    border: none;
+    padding: 0;
+    background: transparent;
+    max-width: 100vw;
+    max-height: 100vh;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox[open] {
+    display: flex;
+}
+
+.lightbox::backdrop {
+    background: rgba(10, 26, 38, 0.88);
+}
+
+.lightbox__figure {
+    margin: 0;
+    text-align: center;
+    max-width: min(92vw, 760px);
+}
+
+.lightbox__img {
+    max-width: 100%;
+    max-height: 84vh;
+    display: block;
+    margin: 0 auto;
+    border-radius: var(--radius-sm);
+    background: #fff;
+    box-shadow: 0 12px 50px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox__caption {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: var(--space-3);
+}
+
+.lightbox__close,
+.lightbox__nav {
+    position: fixed;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    font-size: 1.7rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s var(--ease);
+}
+
+.lightbox__close:hover,
+.lightbox__nav:hover,
+.lightbox__close:focus-visible,
+.lightbox__nav:focus-visible {
+    background: var(--color-gold);
+}
+
+.lightbox__close {
+    top: var(--space-4);
+    right: var(--space-4);
+}
+
+.lightbox__nav--prev {
+    left: var(--space-4);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox__nav--next {
+    right: var(--space-4);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@media (max-width: 600px) {
+
+    .lightbox__close,
+    .lightbox__nav {
+        width: 38px;
+        height: 38px;
+        font-size: 1.4rem;
+    }
+
+    .lightbox__img {
+        max-height: 76vh;
+    }
+}
+
+/* ---- Testimony interlude band ------------------------------------------ */
+.quote-band {
+    background: var(--color-navy-darkest);
+    padding: var(--space-12) var(--space-6);
+}
+
+.quote-band__inner {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.quote-band__text {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(1.05rem, 0.95rem + 0.6vw, 1.35rem);
+    line-height: 1.6;
+    color: var(--color-gold-tint);
+    margin: 0;
+    text-wrap: pretty;
+}
+
+.quote-band__text::before {
+    content: "\201C";
+    color: var(--color-gold);
+}
+
+.quote-band__text::after {
+    content: "\201D";
+    color: var(--color-gold);
+}
+
+.quote-band__cite {
+    display: block;
+    font-family: var(--font-body);
+    font-style: normal;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-gold-soft);
+    margin-top: var(--space-4);
+}
+
+/* ---- FAQ accordion (native details/summary) ----------------------------- */
+.faq {
+    max-width: 760px;
+    margin: var(--space-10) auto 0;
+}
+
+.faq__item {
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius);
+    background: var(--color-paper);
+    margin-bottom: var(--space-3);
+    overflow: hidden;
+}
+
+.faq__item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: var(--space-5) var(--space-6);
+    font-family: var(--font-display);
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: var(--color-navy);
+    position: relative;
+    padding-right: var(--space-12);
+}
+
+.faq__item summary::-webkit-details-marker {
+    display: none;
+}
+
+/* plus / minus indicator */
+.faq__item summary::after {
+    content: "+";
+    position: absolute;
+    right: var(--space-6);
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-body);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--color-gold);
+    transition: transform 0.2s var(--ease);
+}
+
+.faq__item[open] summary::after {
+    content: "\2212";
+}
+
+.faq__item summary:hover {
+    background: var(--color-cream);
+}
+
+.faq__item summary:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: -2px;
+}
+
+.faq__body {
+    padding: 0 var(--space-6) var(--space-5);
+    font-family: var(--font-body);
+    font-size: 0.97rem;
+    line-height: 1.7;
+    color: var(--color-ink-soft);
+}
+
+.faq__body p {
+    margin: 0 0 var(--space-3);
+}
+
+.faq__body p:last-child {
+    margin-bottom: 0;
+}
+
+/* ---- "What you receive" product layout ---------------------------------- */
+.receive {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+    align-items: center;
+}
+
+@media (min-width: 860px) {
+    .receive {
+        grid-template-columns: 1.1fr 1fr;
+    }
+}
+
+.receive__media img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius);
+}
+
+.receive__media figure {
+    margin: 0 0 var(--space-6);
+}
+
+.receive__media figcaption {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--color-ink-mute);
+    text-align: center;
+    margin-top: var(--space-2);
+}
+
+.receive__media figure:last-child {
+    margin-bottom: 0;
 }
