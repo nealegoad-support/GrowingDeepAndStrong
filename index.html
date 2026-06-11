@@ -39,11 +39,6 @@
             <div class="brand-strip__inner">
 
                 <a href="index.html" aria-current="page" class="brand">
-                    <figure class="brand__logo-figure">
-                        <img src="GDAS-Final_Australian_Landscape.jpg"
-                            alt="Growing Deep and Strong — Australian landscape brand mark" class="brand__logo-img" />
-                        <figcaption class="brand__scripture">Jer 17:7–8</figcaption>
-                    </figure>
                     <span class="brand__wordmark">
                         <span class="brand__name">Growing Deep <em>AND</em> Strong<sup>®</sup></span>
                         <span class="brand__tag">Christian Discipleship</span>
@@ -141,20 +136,60 @@
          Responsive: portrait → extend water downward, rock stays ~1/3 from top
          ============================================================ -->
     <section class="brand-hero" aria-label="Growing Deep and Strong — Blueprint for Success">
-        <figure class="brand-hero__figure">
-            <div class="brand-hero__image-wrap">
-                <!-- Carl's APPROVED "Blueprint for Success" mast — the SAME image on
-                     desktop, tablet and mobile (growing-deep-banner.png, 2018×1328).
-                     Shown full & uncropped at every breakpoint via object-fit: contain
-                     at the image's native aspect ratio. -->
-                <picture>
-                    <source srcset="growing-deep-banner.webp" type="image/webp">
-                    <img src="growing-deep-banner.png"
-                        alt="Growing Deep and Strong® — Blueprint for Success — Jeremiah 17:7-8 — Uluru reflected in still water"
-                        class="brand-hero__img" />
-                </picture>
+        <!-- Hero carousel: 4 message slides, 3:2 (1536×1024). Autoplay 5s, infinite
+             loop, fade transition, arrows + dots, pause on hover, swipe + keyboard.
+             Non-active slides are lazy-loaded (data-src) and pulled in just-in-time
+             by the slider script so the page only fetches one ~2.5 MB image up front.
+             Fixed 3:2 viewport + width/height on each <img> prevent layout shift. -->
+        <div class="hero-slider" data-hero-slider role="region" aria-roledescription="carousel"
+            aria-label="Growing Deep and Strong highlights">
+
+            <div class="hero-slider__viewport">
+                <ul class="hero-slider__track" role="list">
+                    <li class="hero-slider__slide is-active" role="group" aria-roledescription="slide"
+                        aria-label="1 of 4">
+                        <img src="page-2-slide.png" width="1536" height="1024" decoding="async"
+                            fetchpriority="high" class="hero-slider__img"
+                            alt="Find Your Destiny and Purpose — we help people discover their God-given calling and provide practical tools to fulfil it. Uluru reflected in still water at dusk." />
+                    </li>
+                    <li class="hero-slider__slide" role="group" aria-roledescription="slide" aria-label="2 of 4">
+                        <img data-src="page-3-slide.png" width="1536" height="1024" decoding="async"
+                            loading="lazy" class="hero-slider__img"
+                            alt="Disciple. Strengthen. Send. — raising mature disciples, servant leaders, and societal reformers with a biblical worldview. Uluru reflected in still water." />
+                    </li>
+                    <li class="hero-slider__slide" role="group" aria-roledescription="slide" aria-label="3 of 4">
+                        <img data-src="page-4-slide.png" width="1536" height="1024" decoding="async"
+                            loading="lazy" class="hero-slider__img"
+                            alt="Start Your Own Christian Training Centre — launch a discipleship centre in your home, church, workplace, classroom, or community using our ready-to-use discipleship and servant leadership programs." />
+                    </li>
+                    <li class="hero-slider__slide" role="group" aria-roledescription="slide" aria-label="4 of 4">
+                        <img data-src="page-5-slide.png" width="1536" height="1024" decoding="async"
+                            loading="lazy" class="hero-slider__img"
+                            alt="For Coaches — help transform people from spiritual confusion to biblical maturity through a structured discipleship pathway." />
+                    </li>
+                </ul>
             </div>
-        </figure>
+
+            <button type="button" class="hero-slider__arrow hero-slider__arrow--prev" data-slider-prev
+                aria-label="Previous slide">
+                <span aria-hidden="true">&#8249;</span>
+            </button>
+            <button type="button" class="hero-slider__arrow hero-slider__arrow--next" data-slider-next
+                aria-label="Next slide">
+                <span aria-hidden="true">&#8250;</span>
+            </button>
+
+            <div class="hero-slider__dots" role="tablist" aria-label="Select a slide" data-slider-dots>
+                <button type="button" class="hero-slider__dot is-active" role="tab" aria-selected="true"
+                    aria-label="Show slide 1: Find Your Destiny and Purpose"></button>
+                <button type="button" class="hero-slider__dot" role="tab" aria-selected="false"
+                    aria-label="Show slide 2: Disciple, Strengthen, Send"></button>
+                <button type="button" class="hero-slider__dot" role="tab" aria-selected="false"
+                    aria-label="Show slide 3: Start Your Own Christian Training Centre"></button>
+                <button type="button" class="hero-slider__dot" role="tab" aria-selected="false"
+                    aria-label="Show slide 4: For Coaches"></button>
+            </div>
+        </div>
     </section>
 
     <!-- ============================================================
@@ -189,30 +224,26 @@
                         Power is in the Blueprint for Success.
                     </p>
 
-                    <!-- Transformation path — from confusion to reformation -->
-                    <div class="nctc-vision__transform" aria-label="Transformation outcomes">
-                        <div class="transform-path">
-                            <div class="transform-path__step">
-                                <span class="transform-path__from">From spiritual confusion</span>
-                                <span class="transform-path__arrow" aria-hidden="true">→</span>
-                                <span class="transform-path__to">doctrinal clarity</span>
-                            </div>
-                            <div class="transform-path__step">
-                                <span class="transform-path__from">From wounded identity</span>
-                                <span class="transform-path__arrow" aria-hidden="true">→</span>
-                                <span class="transform-path__to">secure sonship</span>
-                            </div>
-                            <div class="transform-path__step">
-                                <span class="transform-path__from">From converts</span>
-                                <span class="transform-path__arrow" aria-hidden="true">→</span>
-                                <span class="transform-path__to">disciple-makers</span>
-                            </div>
-                            <div class="transform-path__step">
-                                <span class="transform-path__from">From attendees</span>
-                                <span class="transform-path__arrow" aria-hidden="true">→</span>
-                                <span class="transform-path__to">societal reformers</span>
-                            </div>
-                        </div>
+                    <!-- Transformation journey — a flowing progression, not boxed cards -->
+                    <div class="nctc-vision__transform" aria-label="The transformation journey">
+                        <ul class="transform-journey">
+                            <li class="transform-journey__item">
+                                <span class="transform-journey__from">From spiritual confusion</span>
+                                <span class="transform-journey__to">to doctrinal clarity</span>
+                            </li>
+                            <li class="transform-journey__item">
+                                <span class="transform-journey__from">From wounded identity</span>
+                                <span class="transform-journey__to">to secure sonship</span>
+                            </li>
+                            <li class="transform-journey__item">
+                                <span class="transform-journey__from">From converts</span>
+                                <span class="transform-journey__to">to disciple-makers</span>
+                            </li>
+                            <li class="transform-journey__item">
+                                <span class="transform-journey__from">From attendees</span>
+                                <span class="transform-journey__to">to societal reformers</span>
+                            </li>
+                        </ul>
                     </div>
 
 
@@ -878,6 +909,102 @@
                     if (a) a.setAttribute('aria-expanded', 'false');
                 });
             });
+
+            /* Hero image carousel — vanilla, dependency-free.
+               Fade transitions, 5s autoplay, infinite loop, arrows, dots,
+               pause-on-hover/focus, swipe gestures, keyboard nav, lazy load. */
+            (function initHeroSlider() {
+                var root = document.querySelector('[data-hero-slider]');
+                if (!root) return;
+                var slides = Array.prototype.slice.call(root.querySelectorAll('.hero-slider__slide'));
+                var dots = Array.prototype.slice.call(root.querySelectorAll('.hero-slider__dot'));
+                if (slides.length < 2) return;
+
+                var count = slides.length;
+                var index = 0;
+                var timer = null;
+                var DELAY = 5000;
+                var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+                /* Lazy load: swap data-src → src the first time a slide is needed. */
+                function load(i) {
+                    var img = slides[i] && slides[i].querySelector('img[data-src]');
+                    if (img) {
+                        img.src = img.getAttribute('data-src');
+                        img.removeAttribute('data-src');
+                    }
+                }
+
+                function show(next) {
+                    next = (next + count) % count; /* infinite loop both directions */
+                    load(next);
+                    load((next + 1) % count); /* preload the upcoming slide */
+                    slides[index].classList.remove('is-active');
+                    dots[index].classList.remove('is-active');
+                    dots[index].setAttribute('aria-selected', 'false');
+                    index = next;
+                    slides[index].classList.add('is-active');
+                    dots[index].classList.add('is-active');
+                    dots[index].setAttribute('aria-selected', 'true');
+                }
+
+                function nextSlide() { show(index + 1); }
+                function prevSlide() { show(index - 1); }
+
+                function start() {
+                    if (reduceMotion || timer) return;
+                    timer = window.setInterval(nextSlide, DELAY);
+                }
+                function stop() {
+                    if (timer) { window.clearInterval(timer); timer = null; }
+                }
+                /* Restart the clock after a manual interaction so the next auto-advance
+                   is a full interval away. */
+                function restart() { stop(); start(); }
+
+                /* Arrows */
+                var prevBtn = root.querySelector('[data-slider-prev]');
+                var nextBtn = root.querySelector('[data-slider-next]');
+                if (prevBtn) prevBtn.addEventListener('click', function () { prevSlide(); restart(); });
+                if (nextBtn) nextBtn.addEventListener('click', function () { nextSlide(); restart(); });
+
+                /* Dots */
+                dots.forEach(function (dot, i) {
+                    dot.addEventListener('click', function () { show(i); restart(); });
+                });
+
+                /* Pause on hover (desktop) and while focus is inside the carousel */
+                root.addEventListener('mouseenter', stop);
+                root.addEventListener('mouseleave', start);
+                root.addEventListener('focusin', stop);
+                root.addEventListener('focusout', start);
+
+                /* Keyboard navigation */
+                root.addEventListener('keydown', function (e) {
+                    if (e.key === 'ArrowLeft') { prevSlide(); restart(); }
+                    else if (e.key === 'ArrowRight') { nextSlide(); restart(); }
+                });
+
+                /* Swipe / drag gestures (touch + pointer) */
+                var startX = null;
+                var viewport = root.querySelector('.hero-slider__viewport');
+                viewport.addEventListener('touchstart', function (e) {
+                    startX = e.touches[0].clientX; stop();
+                }, { passive: true });
+                viewport.addEventListener('touchend', function (e) {
+                    if (startX === null) return;
+                    var dx = e.changedTouches[0].clientX - startX;
+                    if (Math.abs(dx) > 40) { dx < 0 ? nextSlide() : prevSlide(); }
+                    startX = null; start();
+                }, { passive: true });
+
+                /* Pause autoplay when the tab is hidden */
+                document.addEventListener('visibilitychange', function () {
+                    document.hidden ? stop() : start();
+                });
+
+                start();
+            })();
 
             /* AOS — Animate on Scroll */
             function initAOS() {

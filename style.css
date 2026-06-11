@@ -338,58 +338,20 @@ h6 {
 }
 
 /* ---- Brand lockup ---- */
+/* Wordmark-only lockup — the landscape now lives solely in the hero shot,
+   keeping the header clean and free of redundant imagery. */
 .brand {
     display: flex;
     align-items: center;
-    gap: var(--space-3);
     color: var(--color-navy);
     flex-shrink: 1;
     min-width: 0;
 }
 
-@media (max-width: 480px) {
-    .brand {
-        gap: var(--space-2);
-    }
-}
-
-/* Landscape image replaces the G mark; scripture sits directly beneath */
-.brand__logo-figure {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2px;
-    flex-shrink: 0;
-}
-
-.brand__logo-img {
-    width: 80px;
-    height: 46px;
-    object-fit: cover;
-    /* Centre on rock + water — key composition area */
-    object-position: center 42%;
-    border-radius: var(--radius-sm);
-    display: block;
-    border: 1px solid rgba(184, 146, 74, 0.4);
-}
-
-/* Jer 17:7–8 always accompanies the logo image */
-.brand__scripture {
-    font-family: var(--font-body);
-    font-size: 0.48rem;
-    letter-spacing: 0.05em;
-    color: var(--color-ink-mute);
-    white-space: nowrap;
-    line-height: 1;
-    text-align: center;
-}
-
 .brand__wordmark {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     line-height: 1.1;
     min-width: 0;
 }
@@ -426,7 +388,7 @@ h6 {
     text-transform: uppercase;
     color: var(--color-ink-mute);
     margin-top: 2px;
-    text-align: center;
+    text-align: left;
 }
 
 /* ---- Primary nav ---- */
@@ -625,52 +587,159 @@ h6 {
     line-height: 0;
 }
 
-.brand-hero__figure {
+/* ---- Hero carousel ---------------------------------------------------------
+   The hero is now a fading image slider. The viewport keeps a fixed 3:2 ratio
+   (matching the 1536×1024 slides) so there is no layout shift while images
+   load, and each slide covers the area cleanly. */
+.hero-slider {
+    position: relative;
+    width: 100%;
+    background: var(--color-navy-darkest);
+}
+
+.hero-slider__viewport {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    max-height: 90vh;
+    overflow: hidden;
+    touch-action: pan-y;
+    /* allow vertical page scroll while we handle horizontal swipes */
+}
+
+.hero-slider__track {
+    list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
+    height: 100%;
 }
 
-/* Desktop default: Carl's approved mast (growing-deep-banner.png, 2018×1328
-   ≈ 1.52:1) shown at its native aspect ratio with object-fit: contain so the
-   baked title / "blueprint for success" / verse are NEVER cropped at any
-   viewport width — a faithful, full reproduction of the supplied artwork. */
-.brand-hero__image-wrap {
-    width: 100%;
-    overflow: hidden;
-    aspect-ratio: 2018 / 1328;
-    max-height: 90vh;
-    background: var(--color-navy-darkest);
-    position: relative;
-    /* anchor for the mobile real-text mast overlay */
+/* Slides are stacked; only the active one is visible and interactive.
+   visibility:hidden keeps inactive slides out of the tab/AT order. */
+.hero-slider__slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s var(--ease), visibility 0s linear 0.8s;
 }
 
-.brand-hero__img {
+.hero-slider__slide.is-active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+    transition: opacity 0.8s var(--ease);
+}
+
+.hero-slider__img {
     width: 100%;
     height: 100%;
     display: block;
-    object-fit: contain;
-    /* full artwork, never cropped */
-    object-position: center center;
+    object-fit: cover;
+    /* baked-in headlines sit near the top — crop the water reflection first */
+    object-position: center top;
 }
 
-/*
-   Portrait / narrow viewport responsive extension:
-   - Taller aspect ratio so water fills the lower portion naturally
-   - object-position shifts image upward → rock lands at ~1/3 from top
-   - object-fit: cover fills the sides with sky/land — no rock duplication
-*/
-/* --- SAME MAST ON ALL DEVICES (Carl's explicit instruction) ---------------
-   The approved image (growing-deep-banner.png) is used on desktop, tablet AND
-   mobile — never swapped. The base rule above already shows it full and
-   uncropped at every width (native aspect-ratio + object-fit: contain), so it
-   simply scales down responsively. No per-breakpoint image change is needed.
-   On very small phones we relax max-height so the full mast is never clipped
-   vertically. */
+/* ---- Arrows ---- */
+.hero-slider__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: rgba(10, 26, 38, 0.45);
+    color: #fff;
+    font-size: 1.9rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s var(--ease), opacity 0.2s var(--ease);
+}
+
+.hero-slider__arrow:hover,
+.hero-slider__arrow:focus-visible {
+    background: var(--color-gold);
+}
+
+.hero-slider__arrow--prev {
+    left: var(--space-4);
+}
+
+.hero-slider__arrow--next {
+    right: var(--space-4);
+}
+
+/* ---- Pagination dots ---- */
+.hero-slider__dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: var(--space-5);
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    gap: var(--space-3);
+}
+
+.hero-slider__dot {
+    width: 12px;
+    height: 12px;
+    padding: 0;
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.hero-slider__dot:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.hero-slider__dot.is-active {
+    background: var(--color-gold);
+    border-color: var(--color-gold);
+    transform: scale(1.1);
+}
+
+/* Visible focus ring for keyboard users */
+.hero-slider__arrow:focus-visible,
+.hero-slider__dot:focus-visible {
+    outline: 2px solid var(--color-gold-soft);
+    outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+    .hero-slider__arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 1.5rem;
+    }
+
+    .hero-slider__dots {
+        bottom: var(--space-3);
+    }
+}
+
+/* On phones, let the full slide show without a vertical clamp. */
 @media (max-width: 767px) {
-    .brand-hero__image-wrap {
+    .hero-slider__viewport {
         max-height: none;
+    }
+}
+
+/* Respect reduced-motion: no cross-fade animation (JS also disables autoplay). */
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-slider__slide,
+    .hero-slider__slide.is-active {
+        transition: none;
     }
 }
 
@@ -1053,12 +1122,14 @@ h6 {
 /* Override global uppercase for the primary h1 headline */
 .nctc-vision__headline {
     font-family: var(--font-display);
-    font-size: clamp(2rem, 1.3rem + 3.8vw, 4.2rem);
+    /* Calmer, more balanced scale — was clamp(2rem … 4.2rem), which read as
+       "shouting". Tops out ~2.75rem so the headline leads without dominating. */
+    font-size: clamp(1.75rem, 1.1rem + 2.2vw, 2.75rem);
     font-weight: 500;
     color: var(--color-navy);
     text-transform: none;
     letter-spacing: 0.01em;
-    line-height: 1.2;
+    line-height: 1.25;
     margin: 0 0 var(--space-8);
     text-wrap: balance;
 }
@@ -1079,68 +1150,88 @@ h6 {
 }
 
 .nctc-vision__body {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem);
+    /* Upright body font (was italic display serif) — easier to read per client.
+       Comfortable reading width and generous line-height for the lead paragraph. */
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 0.95rem + 0.35vw, 1.15rem);
     color: var(--color-ink-soft);
-    max-width: 65ch;
+    max-width: 60ch;
     margin: 0 0 var(--space-12);
-    line-height: 1.65;
+    line-height: 1.7;
     text-wrap: pretty;
 }
 
-/* Transformation path — from → to grid */
+/* Transformation journey — a flowing progression, not boxed cards.
+   Each line reads as one statement ("From spiritual confusion to doctrinal
+   clarity"), strung along a single gold spine so it feels like a journey
+   and pulls the eye downward into the page. */
 .nctc-vision__transform {
     margin: 0 0 var(--space-12);
 }
 
-.transform-path {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
-    gap: var(--space-3);
+.transform-journey {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    max-width: 62ch;
 }
 
-.transform-path__step {
+/* Continuous gold spine linking each milestone */
+.transform-journey::before {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 1.6rem;
+    bottom: 1.6rem;
+    width: 2px;
+    background: linear-gradient(to bottom,
+            transparent,
+            var(--color-gold) 10%,
+            var(--color-gold) 90%,
+            transparent);
+    opacity: 0.45;
+}
+
+.transform-journey__item {
+    position: relative;
+    padding: var(--space-4) 0 var(--space-4) var(--space-8);
+    line-height: 1.45;
+}
+
+/* Hairline divider between milestones — rhythm without boxes */
+.transform-journey__item + .transform-journey__item {
+    border-top: 1px solid var(--color-rule);
+}
+
+/* Gold milestone marker sitting on the spine */
+.transform-journey__item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 1.5rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
     background: var(--color-paper);
-    border: 1px solid var(--color-rule);
-    border-top: 2px solid var(--color-gold);
-    border-radius: var(--radius);
-    padding: var(--space-5) var(--space-4);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    text-align: left;
-    transition: background 0.2s var(--ease), border-top-color 0.2s var(--ease);
+    border: 2px solid var(--color-gold);
+    /* halo in the section colour visually breaks the spine behind the dot */
+    box-shadow: 0 0 0 4px var(--color-paper);
 }
 
-.transform-path__step:hover {
-    background: var(--color-cream-2);
-}
-
-.transform-path__from {
+.transform-journey__from {
     font-family: var(--font-body);
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--color-ink-mute);
-    line-height: 1.3;
+    font-size: 1rem;
+    color: var(--color-ink-soft);
 }
 
-.transform-path__arrow {
-    color: var(--color-gold);
-    font-size: 1.1rem;
-    line-height: 1;
-    display: block;
-}
-
-.transform-path__to {
+/* The outcome carries the emphasis, flowing inline after the "from" phrase */
+.transform-journey__to {
     font-family: var(--font-display);
     font-size: 1.2rem;
-    font-weight: 500;
     font-style: italic;
-    color: var(--color-gold-soft);
-    line-height: 1.2;
+    font-weight: 500;
+    color: var(--color-gold);
 }
 
 /* Scripture verse */
@@ -1169,13 +1260,6 @@ h6 {
     text-transform: uppercase;
     color: var(--color-gold);
 }
-
-@media (max-width: 600px) {
-    .transform-path {
-        grid-template-columns: 1fr;
-    }
-}
-
 
 /* ---- MailChimp opt-in sidebar widget ---------------------------------- */
 .nctc-optin {
@@ -5227,8 +5311,7 @@ h1#editorial-hero-heading {
 
 /* ==========================================================================
    MOBILE HERO — reduce clutter (max-width: 600px)
-   Compresses hero image, tightens spacing, hides the transform-path
-   acronym block so CTAs appear within the first 900px of scroll.
+   Compresses hero image and tightens spacing between hero elements.
    ========================================================================== */
 @media (max-width: 600px) {
 
@@ -5242,7 +5325,7 @@ h1#editorial-hero-heading {
 
     .nctc-vision__headline {
         margin-bottom: 16px;
-        font-size: 1.9rem;
+        font-size: 1.7rem;
     }
 
     .nctc-vision__mandate {
@@ -5253,9 +5336,11 @@ h1#editorial-hero-heading {
         margin-bottom: 24px;
     }
 
-    /* 3. Hide the transform-path acronym block on mobile */
-    .nctc-vision__transform {
-        display: none;
+    /* 3. Transformation journey now reads inline as a flowing narrative,
+          so it stays visible on mobile (was display:none for the boxed grid). */
+    .transform-journey__item {
+        padding-top: var(--space-3);
+        padding-bottom: var(--space-3);
     }
 
     /* 4. Reduce CTA card height on mobile */
