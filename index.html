@@ -136,63 +136,59 @@
          Responsive: portrait → extend water downward, rock stays ~1/3 from top
          ============================================================ -->
     <section class="brand-hero" aria-label="Growing Deep and Strong — Blueprint for Success">
-        <!-- Hero with rotating messages: ONE shared landscape background; only the
-             text cross-fades (opacity only — no slide/zoom/movement) so the hero
-             reads as one cohesive area rather than a promotional carousel. Real
-             HTML text uses the site's own type for brand consistency + a11y.
-             Fixed 3:2 viewport + width/height on the image prevent layout shift. -->
+        <!-- Image hero slider: one image per slide (page-2…5-slide.png), each with
+             its own baked-in message. Transition is a slow, pure-opacity cross-fade
+             — no sliding, zooming or horizontal movement — so it feels calm and
+             premium. Non-active slides are lazy-loaded (data-src) and pulled in
+             just-in-time so only one image is fetched up front. Fixed 3:2 viewport +
+             width/height on each <img> prevent layout shift. -->
         <div class="hero-slider" data-hero-slider role="region" aria-roledescription="carousel"
-            aria-label="Growing Deep and Strong — rotating messages">
+            aria-label="Growing Deep and Strong highlights">
 
             <div class="hero-slider__viewport">
-                <img src="GDAS-Final_Australian_Landscape.jpg" width="1536" height="1024" decoding="async"
-                    fetchpriority="high" class="hero-slider__bg"
-                    alt="Uluru glowing at dusk, reflected in still water beneath a stormy sky — the Growing Deep and Strong landscape." />
-                <div class="hero-slider__scrim" aria-hidden="true"></div>
-
-                <ul class="hero-slider__messages" role="list">
-                    <li class="hero-message is-active" role="group" aria-roledescription="slide" aria-label="1 of 4">
-                        <p class="hero-message__title">Find Your Destiny and Purpose</p>
-                        <p class="hero-message__sub">We help people discover their God-given calling and provide
-                            practical tools to fulfil it.</p>
+                <ul class="hero-slider__track" role="list">
+                    <li class="hero-slider__slide is-active" role="group" aria-roledescription="slide"
+                        aria-label="1 of 4">
+                        <img src="page-2-slide.png" width="1536" height="1024" decoding="async"
+                            fetchpriority="high" class="hero-slider__img"
+                            alt="Find Your Destiny and Purpose — we help people discover their God-given calling and provide practical tools to fulfil it. Uluru reflected in still water at dusk." />
                     </li>
-                    <li class="hero-message" role="group" aria-roledescription="slide" aria-label="2 of 4">
-                        <p class="hero-message__title">Disciple. Strengthen. Send.</p>
-                        <p class="hero-message__sub">Raising mature disciples, servant leaders, and societal reformers
-                            with a biblical worldview.</p>
+                    <li class="hero-slider__slide" role="group" aria-roledescription="slide" aria-label="2 of 4">
+                        <img data-src="page-3-slide.png" width="1536" height="1024" decoding="async"
+                            loading="lazy" class="hero-slider__img"
+                            alt="Disciple. Strengthen. Send. — raising mature disciples, servant leaders, and societal reformers with a biblical worldview. Uluru reflected in still water." />
                     </li>
-                    <li class="hero-message" role="group" aria-roledescription="slide" aria-label="3 of 4">
-                        <p class="hero-message__title">Start Your Own Christian Training Centre</p>
-                        <p class="hero-message__sub">Launch a discipleship centre in your home, church, workplace,
-                            classroom, or community using our ready-to-use discipleship and servant leadership
-                            programs.</p>
+                    <li class="hero-slider__slide" role="group" aria-roledescription="slide" aria-label="3 of 4">
+                        <img data-src="page-4-slide.png" width="1536" height="1024" decoding="async"
+                            loading="lazy" class="hero-slider__img"
+                            alt="Start Your Own Christian Training Centre — launch a discipleship centre in your home, church, workplace, classroom, or community using our ready-to-use discipleship and servant leadership programs." />
                     </li>
-                    <li class="hero-message" role="group" aria-roledescription="slide" aria-label="4 of 4">
-                        <p class="hero-message__title">For Coaches</p>
-                        <p class="hero-message__sub">Help transform people from spiritual confusion to biblical maturity
-                            through a structured discipleship pathway.</p>
+                    <li class="hero-slider__slide" role="group" aria-roledescription="slide" aria-label="4 of 4">
+                        <img data-src="page-5-slide.png" width="1536" height="1024" decoding="async"
+                            loading="lazy" class="hero-slider__img"
+                            alt="For Coaches — help transform people from spiritual confusion to biblical maturity through a structured discipleship pathway." />
                     </li>
                 </ul>
             </div>
 
             <button type="button" class="hero-slider__arrow hero-slider__arrow--prev" data-slider-prev
-                aria-label="Previous message">
+                aria-label="Previous slide">
                 <span aria-hidden="true">&#8249;</span>
             </button>
             <button type="button" class="hero-slider__arrow hero-slider__arrow--next" data-slider-next
-                aria-label="Next message">
+                aria-label="Next slide">
                 <span aria-hidden="true">&#8250;</span>
             </button>
 
-            <div class="hero-slider__dots" role="tablist" aria-label="Select a message" data-slider-dots>
+            <div class="hero-slider__dots" role="tablist" aria-label="Select a slide" data-slider-dots>
                 <button type="button" class="hero-slider__dot is-active" role="tab" aria-selected="true"
-                    aria-label="Show message 1: Find Your Destiny and Purpose"></button>
+                    aria-label="Show slide 1: Find Your Destiny and Purpose"></button>
                 <button type="button" class="hero-slider__dot" role="tab" aria-selected="false"
-                    aria-label="Show message 2: Disciple, Strengthen, Send"></button>
+                    aria-label="Show slide 2: Disciple, Strengthen, Send"></button>
                 <button type="button" class="hero-slider__dot" role="tab" aria-selected="false"
-                    aria-label="Show message 3: Start Your Own Christian Training Centre"></button>
+                    aria-label="Show slide 3: Start Your Own Christian Training Centre"></button>
                 <button type="button" class="hero-slider__dot" role="tab" aria-selected="false"
-                    aria-label="Show message 4: For Coaches"></button>
+                    aria-label="Show slide 4: For Coaches"></button>
             </div>
         </div>
     </section>
@@ -915,14 +911,14 @@
                 });
             });
 
-            /* Hero rotating messages — vanilla, dependency-free.
-               One static background; only the text cross-fades (opacity).
-               5s autoplay, infinite loop, arrows, dots, pause-on-hover/focus,
-               swipe gestures, keyboard nav. */
+            /* Hero image slider — vanilla, dependency-free.
+               Slow pure-opacity cross-fade (no movement), 5s autoplay, infinite
+               loop, arrows, dots, pause-on-hover/focus, swipe gestures, keyboard
+               nav, lazy load. */
             (function initHeroSlider() {
                 var root = document.querySelector('[data-hero-slider]');
                 if (!root) return;
-                var slides = Array.prototype.slice.call(root.querySelectorAll('.hero-message'));
+                var slides = Array.prototype.slice.call(root.querySelectorAll('.hero-slider__slide'));
                 var dots = Array.prototype.slice.call(root.querySelectorAll('.hero-slider__dot'));
                 if (slides.length < 2) return;
 
@@ -932,8 +928,19 @@
                 var DELAY = 5000;
                 var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+                /* Lazy load: swap data-src → src the first time a slide is needed. */
+                function load(i) {
+                    var img = slides[i] && slides[i].querySelector('img[data-src]');
+                    if (img) {
+                        img.src = img.getAttribute('data-src');
+                        img.removeAttribute('data-src');
+                    }
+                }
+
                 function show(next) {
                     next = (next + count) % count; /* infinite loop both directions */
+                    load(next);
+                    load((next + 1) % count); /* preload the upcoming slide */
                     slides[index].classList.remove('is-active');
                     dots[index].classList.remove('is-active');
                     dots[index].setAttribute('aria-selected', 'false');
